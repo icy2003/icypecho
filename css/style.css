@@ -160,7 +160,7 @@ textarea {
     background: none;
 }
 .header .layui-nav .layui-nav-item{
-    margin: 0 20px; 
+    margin: 0 10px; 
 }
 .header .layui-nav .layui-nav-item:after,.header .layui-nav .layui-nav-bar{
     height: 1px;
@@ -168,6 +168,7 @@ textarea {
 }
 .header .layui-nav .layui-nav-item a{
     color: #212220;
+    padding: 0 16px;
 }
 .header .layui-nav .layui-nav-item a:hover{
     color: #6bc30d;
@@ -308,7 +309,7 @@ textarea {
 .text {
     padding-top: 0;
     padding-bottom: 0;
-    line-height: 3;
+    line-height: 2;
     overflow: hidden
 }
 
@@ -320,10 +321,11 @@ textarea {
     overflow-y: scroll
 }
 
-.text img {
+.text img:not([class]) {
     max-width: 80% !important;
     height: auto !important;
-    margin: 20px 0
+    margin: 20px auto;
+    display: block;
 }
 
 .copy-text {
@@ -496,6 +498,29 @@ textarea {
     color: #666
 }
 
+/* 友情链接 */
+.link {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden
+}
+
+.link div a {
+    width: 45%;
+    margin: 0 6px 5px 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.link i {
+    color: #666
+}
+
 /* 页码 */
 .page-navigator {
     padding: 15px;
@@ -594,6 +619,10 @@ textarea {
     color: #888
 }
 
+.pinglun .t-s p {
+    word-break: break-all;
+}
+
 .pinglun .cancel-comment-reply {
     background: #f05050;
     padding: 2px 5px;
@@ -647,6 +676,14 @@ textarea {
 
 .detail>* {
     margin-bottom: 24px;
+}
+
+.detail img {
+    display: block;
+    margin: 0 auto 8px;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
 }
 
 /* 动态页 */
@@ -917,4 +954,23 @@ textarea {
     .about-life .t-i {
         margin: 0
     }
+}
+
+
+/* 兼容系统默认markdown排版样式 */
+.text p {
+    margin: 14px 0px;
+}
+
+.text ol, .text ul {
+    margin: 14px 0px;
+    padding-left: 40px;
+}
+
+.text ol li {
+    list-style: decimal;
+}
+
+.text ul li {
+    list-style: disc;
 }

@@ -160,7 +160,7 @@ textarea {
     background: none;
 }
 .header .layui-nav .layui-nav-item{
-    margin: 0 10px; 
+    margin: 0 10px;
 }
 .header .layui-nav .layui-nav-item:after,.header .layui-nav .layui-nav-bar{
     height: 1px;
@@ -311,6 +311,10 @@ textarea {
     padding-bottom: 0;
     line-height: 2;
     overflow: hidden
+}
+
+.text a {
+    color: #1e9fff;
 }
 
 .text .tab-content {
@@ -856,7 +860,7 @@ textarea {
 
 /* 自适应布局 */
 @media (min-width: 1200px) {
-    
+
 }
 
 @media (max-width: 1200px) {

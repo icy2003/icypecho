@@ -10,11 +10,11 @@
             $group = '';
             $commentClass .= ' comment-by-user';  //如果是评论作者的添加 .comment-by-user 样式
         }
-    } 
+    }
     $commentLevelClass = $comments->_levels > 0 ? ' comment-child' : ' comment-parent';  //评论层数大于0为子级，否则是父级
 ?>
 
-<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php 
+<li id="li-<?php $comments->theId(); ?>" class="comment-body<?php
 if ($comments->levels > 0) {
     echo ' comment-child';
     $comments->levelsAlt(' comment-level-odd', ' comment-level-even');
@@ -35,7 +35,7 @@ echo $commentClass;
             </strong>
             <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
             <div class="t-s"><p><?php $comments->content(); ?></p></div>
-            <span class="t-btn"><?php $comments->reply(); ?> <span class="t-g"><?php $comments->date('Y-m-d H:i'); ?></span></span> 
+            <span class="t-btn"><?php $comments->reply(); ?> <span class="t-g"><?php $comments->date('Y-m-d H:i'); ?></span></span>
         </div><!-- 单条评论者信息及内容 -->
     </div>
     <?php if ($comments->children) { ?>
@@ -51,14 +51,13 @@ echo $commentClass;
 
 <div id="comments">
     <?php $this->comments()->to($comments); ?>
-    
+
     <?php if($this->allow('comment')): ?>
         <div id="<?php $this->respondId(); ?>" class="respond">
             <div class="cancel-comment-reply">
                 <?php $comments->cancelReply(); ?>
             </div>
-        
-            <h4 id="response"><i class="layui-icon">&#xe664;</i> <?php _e('评论啦~'); ?></h4>
+
             <br/>
             <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" role="form">
                 <?php if($this->user->hasLogin()): ?>
@@ -70,11 +69,11 @@ echo $commentClass;
                     </div>
                 </div>
                 <div class="layui-form-item">
-                    <textarea rows="5" cols="30" name="text" id="textarea" placeholder="嘿~ 大神，别默默的看了，快来点评一下吧" class="layui-textarea" required></textarea>
+                    <textarea rows="5" cols="30" name="text" id="textarea" placeholder="大家快来欺负站长啊~" class="layui-textarea" required></textarea>
                 </div>
                 <?php else: ?>
                 <div class="layui-form-item">
-                    <textarea rows="5" cols="30" name="text" id="textarea" placeholder="嘿~ 大神，别默默的看了，快来点评一下吧" class="layui-textarea" required></textarea>
+                    <textarea rows="5" cols="30" name="text" id="textarea" placeholder="大家快来欺负站长啊~" class="layui-textarea" required></textarea>
                 </div>
                 <div class="layui-form-item layui-row layui-col-space5">
                     <div class="layui-col-md4">

@@ -16,7 +16,7 @@
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header(); ?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('layui/css/layui.css'); ?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/layui/dist/css/layui.css'); ?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css'); ?>?t=<?php echo time(); ?>">
     <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('js/main.js'); ?>"></script>

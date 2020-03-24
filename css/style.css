@@ -364,6 +364,16 @@ textarea {
     margin-right: 10px
 }
 
+/* 时钟 */
+
+.clock{
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden
+}
+
 
 /* 搜索框 */
 .component {

@@ -1,0 +1,22 @@
+{
+  "name": "icypecho",
+  "homepage": "https://github.com/icy2003/icypecho",
+  "authors": [
+    "icy2003 <2317216477@qq.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "BSD 3-Clause",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "clipboard": "^2.0.6",
+    "layui": "^2.4.3"
+  }
+}

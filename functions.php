@@ -35,7 +35,7 @@ function thumb($obj) {
 	if(isset($attach->isImage) && $attach->isImage == 1){
 		$thumb = $attach->url;
 	}else{
-		$thumb = '/usr/themes/echo/img/00.png';
+		$thumb = '/usr/themes/icypecho/img/00.png';
 	}
 	return $thumb;
 }

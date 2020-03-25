@@ -16,11 +16,11 @@
             <div class="site-error">
                 <h1 class="headline"><img src="<?php $this->options->themeUrl('img/404.gif');?>" alt="404"></h1>
                 <div class="error-content">
-                    <h4>哦，亲爱的华生</h4>
-                    <h4>贝克街可不是这个方向</h4>
-                    <h5>回到 <a href="<?php $this->options->siteUrl();?>">贝克街221号B</a></h5>
-                    <h5><a href="javascript:;" onclick="toWatson()" id="btnText">坚持要向前走</a></h5>
-                    <h5 id="showText"></h5>
+                    <h3>哦，亲爱的华生</h3>
+                    <h3>贝克街可不是这个方向</h3>
+                    <h1>回到 <a href="<?php $this->options->siteUrl();?>">贝克街221号B</a></h1>
+                    <h4><a href="javascript:;" onclick="toWatson()" id="btnText">坚持要向前走</a></h4>
+                    <h4 id="showText"></h4>
                 </div>
             </div>
         </div>

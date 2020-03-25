@@ -34,8 +34,8 @@ if ($hour >= 3 && $hour < 6) {
         </form>
     </div>
     <div class="clock">
-        <h3 class="title-sidebar"><i class="layui-icon layui-icon-date"></i><?php echo $hourText ?>好，<span id="copyBtn"
-                data-clipboard-text=""></span>现在时间</h3>
+        <h3 class="title-sidebar"><i class="layui-icon layui-icon-date"></i><?php echo $hourText ?>好，<span id="copyDate" data-clipboard-text="">现在时间</span>
+        </h3>
         <div id="clock"></div>
     </div>
     <div class="column">
@@ -87,15 +87,16 @@ function displayTime() {
     var weekday = dayArray[date.getDay()];
     var timestr = year + "年" + month + "月" + day + "日 " + check(hour) +
         ":" + check(minutes) + ":" + check(second) + " " + weekday;
-    $('#copyBtn').attr('data-clipboard-text', timestr);
+    $('#copyTimestamp').attr('data-clipboard-text', Math.round(date / 1000));
+    $('#copyDate').attr('data-clipboard-text', timestr);
     clockDiv.html(timestr);
     setTimeout('displayTime()', 1000);
 }
 $(function() {
     displayTime();
-    var clipboard = new ClipboardJS('#copyBtn');
-    clipboard.on('success', function(e) {
-        layui.layer.msg('华生，你发现了盲点：成功复制当前时间！');
+    new ClipboardJS('#copyDate').on('success', function(e) {
+        layui.layer.msg('华生，你发现了盲点：成功复制了当前时间！');
+        e.clearSelection();
     });
 });
 </script>

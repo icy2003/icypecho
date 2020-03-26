@@ -37,6 +37,9 @@
 
         $('body').append($i);
         $i.css({
+            'font-family': '"Consolas","Microsoft JhengHei","Apple LiGothic Medium,Microsoft YaHei","微软雅黑","Arial",sans-serif',
+            'font-size': '20px',
+            'font-weight': 'bold',
             cursor: 'default',
             top: yy,
             left: xx,

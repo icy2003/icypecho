@@ -22,7 +22,9 @@
     <script src="<?php $this->options->themeUrl('vendor/bower/clipboard/dist/clipboard.min.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js'); ?>"></script>
     <script src="<?php $this->options->themeUrl('js/main.js'); ?>"></script>
+
     <script>
+    // 鼠标漂浮字
     $(document).click(function(e) {
         var list = ['富强', '民主', '文明', '和谐', '自由', '平等', '公正', '法治', '爱国', '敬业', '诚信', '友善'];
         textUp(e, 2000, list, 200);
@@ -37,7 +39,7 @@
 
         $('body').append($i);
         $i.css({
-            'font-family': '"Consolas","Microsoft JhengHei","Apple LiGothic Medium,Microsoft YaHei","微软雅黑","Arial",sans-serif',
+            'font-family': '"Microsoft JhengHei","Apple LiGothic Medium,Microsoft YaHei","微软雅黑","Arial",sans-serif',
             'font-size': '20px',
             'font-weight': 'bold',
             cursor: 'default',
@@ -57,9 +59,19 @@
         })
     }
     </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?4e461e4233e45db93a5a0435707cd7fc";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+
 </head>
 
-<body>
+<body id="body">
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
     <!--[if lt IE 9]>
   <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>

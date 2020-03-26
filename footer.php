@@ -1,14 +1,29 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
+<?php if (!defined('__TYPECHO_ROOT_DIR__')) {
+    exit;
+}
+?>
 
 <div class="footer">
-    <div class="layui-col-md12 t-copy">
+    <div class="layui-col-md12 layui-col-xs12 t-copy">
         <span class="layui-breadcrumb">
-            <span>&copy; <?php echo date('Y'); ?> <a href="<?php $this->options->siteUrl(); ?>"><?php $this->options->title(); ?></a></span>
-            <span class="layui-hide-xs"><a href="http://typecho.org/" target="_blank" rel="nofollow">Typecho 提供技术支持</a></span>
+            <span>&copy; <?php echo date('Y'); ?>
+                <a href="<?php $this->options->siteUrl();?>"><?php $this->options->title();?></a>
+            </span>
+            <span>
+                <a href="http://typecho.org/" target="_blank" rel="nofollow">Typecho 提供技术支持</a>
+            </span>
+        </span>
+    </div>
+    <div class="layui-col-md12 layui-col-xs12 t-copy">
+        <span class="layui-breadcrumb">
+            <span>
+                <?php Uptime_Plugin::show();?>
+            </span>
         </span>
     </div>
 </div>
 
-<?php $this->footer(); ?>
+<?php $this->footer();?>
 </body>
+
 </html>

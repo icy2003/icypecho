@@ -34,15 +34,44 @@ if ($hour >= 3 && $hour < 6) {
         </form>
     </div>
     <div class="clock">
-        <h3 class="title-sidebar"><i class="layui-icon layui-icon-date"></i><?php echo $hourText ?>好，<span id="copyDate" data-clipboard-text="">现在时间</span>
+        <h3 class="title-sidebar"><i class="layui-icon layui-icon-date"></i><?php echo $hourText ?>好，<span id="copyDate"
+                data-clipboard-text="">现在时间</span>
         </h3>
         <div id="clock"></div>
     </div>
     <div class="column">
         <h3 class="title-sidebar"><i class="layui-icon">&#xe705;</i><?php _e('栏目分类');?></h3>
-        <ul class="layui-row layui-col-space5">
-            <?php $this->widget('Widget_Metas_Category_List')
-    ->parse('<li class="layui-col-md12 layui-col-xs6"><a href="{permalink}"><i class="layui-icon">&#xe63c;</i> {name}<span class="layui-badge layui-bg-gray">{count}</span></a></li>');?>
+        <ul class="layui-row">
+            <?php $this->widget('Widget_Metas_Category_List')->to($categorys);?>
+            <?php while ($categorys->next()): ?>
+            <?php if ($categorys->levels === 0): ?>
+            <li class="layui-col-md12 layui-col-xs12">
+                <a href="<?php echo $categorys->permalink; ?>" title="<?php echo $categorys->name; ?>">
+                    <i class="layui-icon layui-icon-right"></i> <?php echo $categorys->name; ?>
+                </a>
+                <span class="layui-badge layui-bg-gray">
+                    <?php echo $categorys->count ?>
+                </span>
+                <?php $children = $categorys->getAllChildren($categorys->mid);?>
+                <ul class="layui-row">
+                    <?php foreach ($children as $mid): ?>
+                    <?php $child = $categorys->getCategory($mid);?>
+                    <li>
+                        <a class="layui-col-md-offset2 layui-col-xs-offset2" href="<?php echo $child['permalink']; ?>"
+                            title="<?php echo $child['name']; ?>">
+                            <i class="layui-icon layui-icon-right"></i> <?php echo $child['name']; ?>
+                        </a>
+                        <span class="layui-badge layui-bg-gray">
+                            <?php echo $categorys->count ?>
+                        </span>
+                    </li>
+                    <?php endforeach;?>
+                </ul>
+            </li>
+            <?php endif;?>
+            <?php endwhile;?>
+            <?php /*$this->widget('Widget_Metas_Category_List')
+->parse('<li class="layui-col-md12 layui-col-xs6"><a href="{permalink}"><i class="layui-icon">&#xe63c;</i> {name}<span class="layui-badge layui-bg-gray">{count}</span></a></li>');*/?>
         </ul>
     </div>
     <div class="tags">

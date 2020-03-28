@@ -35,8 +35,8 @@ if ($hour >= 3 && $hour < 6) {
             </div>
             <div class="layui-inline">
                 <a class="layui-btn layui-btn-sm layui-btn-primary" href="<?php $this->options->siteUrl();?>goodluck"
-                    title="手气不错">
-                    <i class="layui-icon layui-icon-tree"></i>
+                    title="华生，来试试手气吧">
+                    <i class="layui-icon layui-icon-release"></i>
                 </a>
             </div>
         </form>
@@ -45,7 +45,7 @@ if ($hour >= 3 && $hour < 6) {
         <h3 class="title-sidebar"><i class="layui-icon layui-icon-date"></i><?php echo $hourText ?>好，<span id="copyDate"
                 data-clipboard-text="">现在时间</span>
         </h3>
-        <div id="clock"></div>
+        <div id="clock">&nbsp;</div>
     </div>
     <div class="column">
         <h3 class="title-sidebar"><i class="layui-icon">&#xe705;</i><?php _e('栏目分类');?></h3>
@@ -122,7 +122,7 @@ function displayTime() {
     dayArray[5] = "周五";
     dayArray[6] = "周六";
     var weekday = dayArray[date.getDay()];
-    var timestr = year + "年" + month + "月" + day + "日 " + check(hour) +
+    var timestr = year + " 年 " + month + " 月 " + day + " 日 " + check(hour) +
         ":" + check(minutes) + ":" + check(second) + " " + weekday;
     $('#copyTimestamp').attr('data-clipboard-text', Math.round(date / 1000));
     $('#copyDate').attr('data-clipboard-text', timestr);

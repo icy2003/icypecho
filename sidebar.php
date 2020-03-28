@@ -29,7 +29,15 @@ if ($hour >= 3 && $hour < 6) {
                     placeholder="<?php _e('输入关键字搜索');?>" />
             </div>
             <div class="layui-inline">
-                <button class="layui-btn layui-btn-sm layui-btn-primary"><i class="layui-icon">&#xe615;</i></button>
+                <button class="layui-btn layui-btn-sm layui-btn-primary" title="搜索文章标题">
+                    <i class="layui-icon layui-icon-search"></i>
+                </button>
+            </div>
+            <div class="layui-inline">
+                <a class="layui-btn layui-btn-sm layui-btn-primary" href="<?php $this->options->siteUrl();?>goodluck"
+                    title="手气不错">
+                    <i class="layui-icon layui-icon-tree"></i>
+                </a>
             </div>
         </form>
     </div>

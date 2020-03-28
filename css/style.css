@@ -203,11 +203,16 @@ textarea {
     float: left;
     text-align: center;
     overflow: hidden;
-    margin-right: 25px
+    margin-right: 25px;
 }
 
 .list-card .list-pic img {
     max-width: 100%
+}
+
+.list-card .list-pic a {
+    word-wrap:break-word;
+    word-break:normal;
 }
 
 .list-card p {
@@ -384,7 +389,6 @@ textarea {
     overflow: hidden
 }
 .component .layui-input {
-    width: 190px;
     height: 30px;
     padding-left: 12px;
     font-size: 12px;
@@ -594,7 +598,6 @@ textarea {
 }
 
 .pinglun .t-u {
-    margin-left: 70px;
     line-height: 22px;
     padding-bottom: 10px;
     margin-bottom: 10px

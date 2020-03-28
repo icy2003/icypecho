@@ -39,11 +39,11 @@
             <div class="page-text">
                 <div>
                     <span class="layui-badge layui-bg-gray">上一篇</span>
-                    <?php $this->thePrev('%s','没有了'); ?>
+                    <?php CategoryNext_Plugin::thePrev('%s','没有了',array(),$this);?>
                 </div>
                 <div>
                     <span class="layui-badge layui-bg-gray">下一篇</span>
-                    <?php $this->theNext('%s','没有了'); ?>
+                    <?php CategoryNext_Plugin::theNext('%s','没有了',array(),$this);?>
                 </div>
             </div>
             <div class="comment-text layui-form">

@@ -20,8 +20,16 @@
             <?php if ($this->have()): ?>
             <?php while($this->next()): ?>
             <div class="title-article list-card">
-                <div class="list-pic"><a href="<?php $this->permalink() ?>" title="<?php $this->title() ?>"><img
-                            src="<?php echo thumb($this); ?>" alt="<?php $this->title() ?>" class="img-full"></a></div>
+                <div class="list-pic">
+                    <a href="<?php $this->permalink()?>" title="<?php $this->title()?>">
+                        <?php $attach = $this->attachments(1)->attachment; ?>
+                        <?php if(isset($attach->isImage) && $attach->isImage == 1): ?>
+                        <img src="<?php echo $attach->url; ?>" alt="" class="img-full">
+                        <?php else: ?>
+                        <?php echo $this->title() ?>
+                        <?php endif;?>
+                    </a>
+                </div>
                 <a href="<?php $this->permalink() ?>">
                     <h1><?php $this->title() ?></h1>
                     <p><?php $this->excerpt(200, '...'); ?></p>

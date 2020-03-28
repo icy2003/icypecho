@@ -1,21 +1,21 @@
-layui.use(['layer', 'element', 'util'], function(){
+layui.use(['layer', 'element', 'util'], function () {
     var $ = layui.$,
-    layer = layui.layer,
-    element = layui.element,
-    util = layui.util;
-    
-    $(".nav-btn").on('click', function(){
+        layer = layui.layer,
+        element = layui.element,
+        util = layui.util;
+
+    $(".nav-btn").on('click', function () {
         $('.nav-btn dl').toggleClass('layui-show');
     });
 
     //友情链接tips
-    $(".link div a").mouseover(function(e) {
+    $(".link div a").mouseover(function (e) {
         if ($.trim(this.title) != '') {
             this.Title = this.title;
             this.title = "";
-            layer.tips(this.Title, this, {tips: 3});
+            layer.tips(this.Title, this, { tips: 3 });
         }
-    }).mouseout(function() {
+    }).mouseout(function () {
         if (this.Title != null) {
             this.title = this.Title;
         }
@@ -23,12 +23,12 @@ layui.use(['layer', 'element', 'util'], function(){
 
     //文章图片点击事件(如果为pc端才生效)
     var device = layui.device();
-    if(!(device.weixin || device.android || device.ios)){
-        $(".text img").click(function() {
+    if (!(device.weixin || device.android || device.ios)) {
+        $(".text img").click(function () {
             $.previewImage(this.src);
         });
         $.previewImage = function (src) {
-            var img = new Image(), index = layer.load(2, {time: 0, scrollbar: false, shade: [0.02, '#000']});
+            var img = new Image(), index = layer.load(2, { time: 0, scrollbar: false, shade: [0.02, '#000'] });
             img.style.background = '#fff', img.style.display = 'none';
             img.src = src;
             document.body.appendChild(img), img.onerror = function () {
@@ -45,6 +45,10 @@ layui.use(['layer', 'element', 'util'], function(){
     }
 
     //右下角工具箱（返回顶部）
-    util.fixbar();
-    
+    util.fixbar({
+        css: {
+            bottom: '15%',
+        }
+    });
+
 });

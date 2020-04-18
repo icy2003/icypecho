@@ -31,13 +31,16 @@ function get_post_view($archive){
 
 // 获取附件图片
 function thumb($obj) {
-	$attach = $obj->attachments(1)->attachment;
-	if(isset($attach->isImage) && $attach->isImage == 1){
-		$thumb = $attach->url;
-	}else{
-		$thumb = '/usr/themes/icypecho/img/00.png';
-	}
-	return $thumb;
+	if($obj->hidden){
+        return $obj->title();
+    }else{
+        $attach = $obj->attachments(1)->attachment;
+        if (isset($attach->isImage) && $attach->isImage == 1){
+            return "<img src='{$attach->url}' class='img-full'>";
+        }else{
+            return $obj->title();
+        }
+    }
 }
 
 // 留言加@

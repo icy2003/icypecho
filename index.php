@@ -22,12 +22,7 @@ $this->need('header.php');
             <div class="title-article list-card">
                 <div class="list-pic">
                     <a href="<?php $this->permalink()?>" title="<?php $this->title()?>">
-                        <?php $attach = $this->attachments(1)->attachment;?>
-                        <?php if (isset($attach->isImage) && $attach->isImage == 1): ?>
-                        <img src="<?php echo $attach->url; ?>" alt="" class="img-full">
-                        <?php else: ?>
-                        <?php echo $this->title() ?>
-                        <?php endif;?>
+                        <?php echo thumb($this); ?>
                     </a>
                 </div>
                 <a href="<?php $this->permalink()?>">

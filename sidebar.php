@@ -24,7 +24,7 @@ if ($hour >= 3 && $hour < 6) {
 <div class="sidebar layui-col-md3 layui-col-lg3">
     <div class="component">
         <form class="layui-form" id="search" method="post" action="<?php $this->options->siteUrl();?>" role="search">
-            <div class="layui-inline input">
+            <div class="layui-inline input" style="width: 60%">
                 <input type="text" id="s" name="s" class="layui-input" required lay-verify="required"
                     placeholder="<?php _e('输入关键字搜索');?>" />
             </div>

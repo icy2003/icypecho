@@ -35,7 +35,7 @@ echo $commentClass;
             </strong>
             <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
             <div class="t-s"><p><?php $comments->content(); ?></p></div>
-            <span class="t-btn"><?php $comments->reply(); ?> <span class="t-g"><?php $comments->date('Y-m-d H:i'); ?></span></span>
+            <span class="t-btn"><?php $comments->reply(); ?> <span class="t-g"><?php $comments->date(); ?></span></span>
         </div><!-- 单条评论者信息及内容 -->
     </div>
     <?php if ($comments->children) { ?>

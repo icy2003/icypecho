@@ -33,7 +33,7 @@ $this->need('header.php');
                 </a>
                 <div class="title-msg">
                     <span><i class="layui-icon layui-icon-read"></i> <?php $this->category(',');?></span>
-                    <span><i class="layui-icon layui-icon-date"></i> <?php $this->date('Y-m-d H:i:s');?> </span>
+                    <span><i class="layui-icon layui-icon-date"></i> <?php $this->date();?> </span>
                     <span class="layui-hide-xs"><i class="layui-icon layui-icon-fire"></i>
                         <?php get_post_view($this);?></span>
                     <span class="layui-hide-xs"><i class="layui-icon layui-icon-dialogue"></i>

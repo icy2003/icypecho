@@ -21,6 +21,7 @@
     <?php $this->header();?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/layui/dist/css/layui.css');?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css');?>?t=<?php echo time(); ?>">
+    <link rel="shortcut icon" href="/usr/themes/icypecho/favicon.ico" />
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/clipboard/dist/clipboard.min.js');?>"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js');?>"></script>

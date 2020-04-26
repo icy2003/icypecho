@@ -38,11 +38,11 @@
             </div>
             <div class="page-text">
                 <div>
-                    <span class="layui-badge layui-bg-gray">上一篇</span>
+                    <span>上一篇</span>
                     <?php CategoryNext_Plugin::thePrev('%s','没有了',array(),$this);?>
                 </div>
                 <div>
-                    <span class="layui-badge layui-bg-gray">下一篇</span>
+                    <span>下一篇</span>
                     <?php CategoryNext_Plugin::theNext('%s','没有了',array(),$this);?>
                 </div>
             </div>

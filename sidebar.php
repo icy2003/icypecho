@@ -55,31 +55,14 @@ if ($hour >= 3 && $hour < 6) {
             <?php if ($categorys->levels === 0): ?>
             <li class="layui-col-md12 layui-col-xs12">
                 <a href="<?php echo $categorys->permalink; ?>" title="<?php echo $categorys->name; ?>">
-                    <i class="layui-icon layui-icon-right"></i> <?php echo $categorys->name; ?>
+                <?php echo $categorys->name; ?>
                 </a>
-                <span class="layui-badge layui-bg-gray">
+                <span>
                     <?php echo $categorys->count ?>
                 </span>
-                <?php $children = $categorys->getAllChildren($categorys->mid);?>
-                <ul class="layui-row">
-                    <?php foreach ($children as $mid): ?>
-                    <?php $child = $categorys->getCategory($mid);?>
-                    <li>
-                        <a class="layui-col-md-offset2 layui-col-xs-offset2" href="<?php echo $child['permalink']; ?>"
-                            title="<?php echo $child['name']; ?>">
-                            <i class="layui-icon layui-icon-right"></i> <?php echo $child['name']; ?>
-                        </a>
-                        <span class="layui-badge layui-bg-gray">
-                            <?php echo $categorys->count ?>
-                        </span>
-                    </li>
-                    <?php endforeach;?>
-                </ul>
             </li>
             <?php endif;?>
             <?php endwhile;?>
-            <?php /*$this->widget('Widget_Metas_Category_List')
-->parse('<li class="layui-col-md12 layui-col-xs6"><a href="{permalink}"><i class="layui-icon">&#xe63c;</i> {name}<span class="layui-badge layui-bg-gray">{count}</span></a></li>');*/?>
         </ul>
     </div>
     <div class="tags">
@@ -87,7 +70,7 @@ if ($hour >= 3 && $hour < 6) {
         <div>
             <?php $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=30')->to($tags);?>
             <?php while ($tags->next()): ?>
-            <a class="layui-btn layui-btn-xs layui-btn-primary"
+            <a class="size-<?php $tags->split(5, 10, 20, 30);?>"
                 style="color: rgb(<?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>)"
                 href="<?php $tags->permalink();?>" title='<?php $tags->name();?>'><?php $tags->name();?></a>
             <?php endwhile;?>

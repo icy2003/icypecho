@@ -591,6 +591,22 @@ textarea {
     overflow: hidden
 }
 
+.tags .size-5 {
+    font-size: 1em;
+}
+
+.tags .size-10 {
+    font-size: 1.2em;
+}
+
+.tags .size-20 {
+    font-size: 1.4em;
+}
+
+.tags .size-30 {
+    font-size: 1.6em;
+}
+
 .tags div a {
     margin: 0 6px 5px 0 !important;
     white-space: nowrap;

@@ -75,17 +75,9 @@ menu {
     list-style: none
 }
 
-h1,
-h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 10px
-}
-
 body {
     background: #f8f8f8;
-    font-family: "Microsoft JhengHei", "Apple LiGothic Medium,Microsoft YaHei", "微软雅黑", "Arial", sans-serif;
+    font-family: Oswald, Arial, sans-serif;
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -webkit-overflow-scrolling: touch;
@@ -98,7 +90,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .md_content li {
@@ -1085,7 +1077,6 @@ textarea {
 
 .text ol,
 .text ul {
-    margin: 14px 0px;
     padding-left: 40px;
 }
 

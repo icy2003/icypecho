@@ -12,7 +12,7 @@
         </div>
         <div class="layui-col-md9 layui-col-lg9">
             <div class="title-article text-center">
-                <h1><?php $this->title() ?></h1>
+                <h3><?php $this->title() ?></h3>
             </div>
             <div class="text" itemprop="articleBody">
                 <?php $this->content(); ?>
@@ -21,7 +21,7 @@
                 <?php $this->need('comments.php'); ?>
             </div>
         </div>
-        
+
         <?php $this->need('sidebar.php'); ?>
 
     </div>

@@ -26,7 +26,7 @@ $this->need('header.php');
                     </a>
                 </div>
                 <a href="<?php $this->permalink()?>">
-                    <h1><?php $this->title()?></h1>
+                    <h3><?php $this->title()?></h3>
                     <p>
                         <?php $this->excerpt(200, '...');?>
                     </p>

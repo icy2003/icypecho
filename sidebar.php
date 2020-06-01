@@ -34,7 +34,7 @@ if ($hour >= 3 && $hour < 6) {
                 </button>
             </div>
             <div class="layui-inline">
-                <a class="layui-btn layui-btn-sm layui-btn-primary" href="<?php $this->options->siteUrl();?>goodluck"
+                <a class="layui-btn layui-btn-sm layui-btn-primary" href="<?php $this->options->siteUrl();?>goodluck?<?php echo rand(0, 99) ?>"
                     title="华生，来试试手气吧">
                     <i class="layui-icon layui-icon-release"></i>
                 </a>
@@ -57,9 +57,6 @@ if ($hour >= 3 && $hour < 6) {
                 <a href="<?php echo $categorys->permalink; ?>" title="<?php echo $categorys->name; ?>">
                 <?php echo $categorys->name; ?>
                 </a>
-                <span>
-                    <?php echo $categorys->count ?>
-                </span>
             </li>
             <?php endif;?>
             <?php endwhile;?>
@@ -70,8 +67,7 @@ if ($hour >= 3 && $hour < 6) {
         <div id="tag-cloud">
             <?php $this->widget('Widget_Metas_Tag_Cloud', 'ignoreZeroCount=1&limit=30')->to($tags);?>
             <?php while ($tags->next()): ?>
-            <a class="size-<?php $tags->split(5, 10, 20, 30);?>"
-                style="color: rgb(<?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>)"
+            <a style="color: rgb(<?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>, <?php echo (rand(0, 255)); ?>)"
                 href="<?php $tags->permalink();?>" title='<?php $tags->name();?>'><?php $tags->name();?></a>
             <?php endwhile;?>
         </div>

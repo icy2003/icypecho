@@ -43,7 +43,6 @@ function thumb($obj)
     $title = ob_get_contents();
     ob_end_clean();
     $title = Strings::partAfter($title, '】') ?: $title;
-    $title = Strings::partAfter($title, '：') ?: $title;
     if ($obj->hidden) {
         return $title;
     } else {

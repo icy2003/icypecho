@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "clipboard": "^2.0.6",
-    "layui": "^2.4.3"
+    "layui": "^2.4.3",
+    "smallpop": "^0.1.3"
   }
 }

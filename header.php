@@ -1,6 +1,14 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit;
 }
+$welcomeMsgs = [
+    '有朋自远方来，不亦乐乎',
+    '海内存知已，天涯若比邻',
+    '同是天涯沦落人，相逢何必曾相识',
+    '莫愁前路无知己，天下谁人不识君',
+    '劝君更尽一杯酒，西出阳关无故人',
+];
+$welcomeMsg = $welcomeMsgs[rand(0, count($welcomeMsgs) - 1)];
 ?>
 <!DOCTYPE HTML>
 <html class="no-js">
@@ -20,20 +28,31 @@
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header();?>
     <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/layui/dist/css/layui.css');?>">
+    <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.css');?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css');?>?t=<?php echo time(); ?>">
     <link rel="shortcut icon" href="/usr/themes/icypecho/favicon.ico" />
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
-    <script src="<?php $this->options->themeUrl('vendor/bower/clipboard/dist/clipboard.min.js');?>"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js');?>"></script>
+    <script src="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.js');?>"></script>
     <script src="<?php $this->options->themeUrl('js/main.js');?>"></script>
     <script>
     var _hmt = _hmt || [];
-    (function() {
+    $(function() {
+        var refUrl = document.referrer
+        if (refUrl && refUrl.indexOf('icy2003.com') == -1) {
+            spop({
+                template: '<h4><?php echo $welcomeMsg ?></h4><p>欢迎来自 ' + document.referrer.split('/')[
+                    2] + ' 的朋友</p>',
+                position: 'bottom-left',
+                autoclose: 5000
+            });
+        }
         var hm = document.createElement("script");
         hm.src = "https://hm.baidu.com/hm.js?4e461e4233e45db93a5a0435707cd7fc";
         var s = document.getElementsByTagName("script")[0];
         s.parentNode.insertBefore(hm, s);
-    })();
+    });
     </script>
 
 </head>
@@ -70,7 +89,7 @@
                 <?php endwhile;?>
 
                 <li class="layui-nav-item nav-btn layui-hide-sm">
-                    <a href="javascript:;"><i class='layui-icon layui-icon-more'></i></a>
+                    <a href="javascript:;"><i class='layui-icon layui-icon-app'></i></a>
                     <dl class="layui-nav-child">
                         <?php while ($pages->next()): ?>
                         <dd><a href="<?php $pages->permalink();?>"><?php $pages->title();?></a></dd>

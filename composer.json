@@ -1,5 +1,5 @@
 {
     "require": {
-        "icy2003/php": "~1.0"
+        "icy2003/php": "dev-dev"
     }
 }

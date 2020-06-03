@@ -32,7 +32,7 @@
                         <i class="layui-icon layui-timeline-axis">&#xe63f;</i>
                         <div class="layui-timeline-content">
                             <h3 class="layui-timeline-title"><a href="<?php $archives->permalink(); ?>"><?php $archives->date(); ?></a></h3>
-                            <?php 
+                            <?php
                                 $year = $archives->year;
                                 $month = $archives->month;
                                 $nextMonth = $archives->month+1;
@@ -40,6 +40,7 @@
                                 ->where('table.contents.status = ?', 'publish')
                                 ->where('table.contents.created >= ?', strtotime("$year-$month"))
                                 ->where('table.contents.created < ?', strtotime("$year-$nextMonth"))
+                                ->where('table.contents.created < ?', time())
                                 ->where('table.contents.type = ?', 'post')
                                 ->order('table.contents.created', Typecho_Db::SORT_DESC), array($this, 'push'));
                                 //var_dump($contents);
@@ -47,7 +48,7 @@
                                     echo "<p><a href='$content[permalink]' title='$content[title]'>$content[title] <small><i class='layui-icon'>&#xe637;</i> $content[day]日发布，共$content[commentsNum]条评论</small></a></p>";
                                 }
                             ?>
-                            
+
                         </div>
                     </li>
                     <?php endwhile; ?>
@@ -60,7 +61,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <?php $this->need('sidebar.php'); ?>
 
     </div>

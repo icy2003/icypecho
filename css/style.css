@@ -78,7 +78,6 @@ code {
 }
 
 code {
-    padding: 2px 4px;
     color: #B94A48;
 }
 
@@ -90,8 +89,11 @@ pre {
     border-radius: 3px;
 }
 
+pre.line-numbers {
+    padding-left: 2em;
+}
+
 pre code {
-    padding: 3px;
     color: #444;
 }
 
@@ -249,7 +251,8 @@ textarea {
     background: #fff;
     overflow: hidden;
     padding: 20px 20px 10px 20px;
-    position: relative
+    position: relative;
+    margin-bottom: 10px;
 }
 
 .title-article h1 {
@@ -342,8 +345,8 @@ textarea {
 }
 
 .text {
-    padding-top: 0;
-    padding-bottom: 0;
+    padding: 10px 10px;
+    margin-bottom: 10px;
     line-height: 2;
 }
 
@@ -396,6 +399,30 @@ textarea {
 
 .page-text span {
     margin-right: 10px
+}
+
+
+/* 天气 */
+
+.weather {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden
+}
+
+.weather .layui-tab-title li {
+    padding: 0
+}
+
+#scroll {
+    overflow: hidden;
+    height: 1.5em;
+}
+
+#scroll ul li {
+    float: left;
 }
 
 
@@ -467,6 +494,44 @@ textarea {
 
 .column ul i {
     color: #666
+}
+
+
+/* 友情链接 */
+
+.friends {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    overflow: hidden
+}
+
+.friends div a {
+    width: 45%;
+    margin: 0 6px 5px 0 !important;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.friends i {
+    color: #666
+}
+
+
+/* tip 气泡 */
+
+.tip i {
+    position: relative;
+    top: -0.5em;
+    color: DeepSkyBlue;
+}
+
+.tip-when-bubble {
+    background-color: LemonChiffon;
 }
 
 
@@ -574,31 +639,6 @@ textarea {
 }
 
 
-/* 友情链接 */
-
-.link {
-    background: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    overflow: hidden
-}
-
-.link div a {
-    width: 45%;
-    margin: 0 6px 5px 0 !important;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    border: none;
-    border-bottom: 1px solid #f0f0f0;
-}
-
-.link i {
-    color: #666
-}
-
-
 /* 页码 */
 
 .page-navigator {
@@ -623,12 +663,16 @@ textarea {
 /* 底部 */
 
 .footer {
-    background: #fff;
+    background-color: #fff;
     padding-top: 20px;
     padding-bottom: 60px
 }
 
 .footer span {
+    color: #999
+}
+
+.footer a {
     color: #999
 }
 

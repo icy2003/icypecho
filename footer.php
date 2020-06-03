@@ -1,6 +1,8 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) {
+<?php
+if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit;
 }
+$links = include 'data/links.php';
 ?>
 
 <div class="footer">
@@ -25,5 +27,4 @@
 
 <?php $this->footer();?>
 </body>
-
 </html>

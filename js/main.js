@@ -163,7 +163,7 @@ $(document).ready(function() {
         })
 
         // tip 提示
-        $(".tip").mouseover(function(e) {
+        $(".tip").mouseover(function() {
             if ($.trim(this.title) != '') {
                 this.Title = this.title;
                 this.title = "";
@@ -179,8 +179,17 @@ $(document).ready(function() {
         // 添加复制文本按钮
         $('.clipboard').each(function() {
             var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
-            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 10px);" data-clipboard-text="' + text + '" data-clipboard-action="copy"><i class="layui-icon layui-icon-file-b"></i></button></div>')
+            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 10px);" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
+        var clipboardBackgroundColor = 'none';
+        $('.clipboardBtn').mouseover(function() {
+            clipboardBackgroundColor = $(this).parent().parent().css('background-color')
+            $(this).parent().parent().css('background-color', 'AliceBlue')
+        }).mouseout(function() {
+            $(this).parent().parent().css('background-color', clipboardBackgroundColor)
+        })
+
+        // 复制成功弹窗
         new ClipboardJS('.clipboardBtn').on('success', function(e) {
             layer.msg('成功复制文本！');
             e.clearSelection();

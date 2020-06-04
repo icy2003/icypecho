@@ -33,6 +33,7 @@ $welcomeMsg = $welcomeMsgs[rand(0, count($welcomeMsgs) - 1)];
     <link rel="shortcut icon" href="/usr/themes/icypecho/favicon.ico" />
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js');?>"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.js');?>"></script>
     <script src="<?php $this->options->themeUrl('js/main.js');?>"></script>

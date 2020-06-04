@@ -157,8 +157,8 @@ $(document).ready(function() {
                 if (bubble == '') {
                     bubble = 'layui-icon-reply-fill'
                 }
-                $(this).append('<i class="layui-icon ' + bubble + '"></i>')
-                $(this).addClass('tip-when-bubble')
+                $(this).append('<i class="layui-icon ' + bubble + '" style="position: relative;top: -0.5em;color: DeepSkyBlue;"></i>')
+                $(this).css("background-color", "LemonChiffon")
             }
         })
 
@@ -175,6 +175,16 @@ $(document).ready(function() {
             }
             layer.closeAll()
         })
+
+        // 添加复制文本按钮
+        $('.clipboard').each(function() {
+            var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
+            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 10px);" data-clipboard-text="' + text + '" data-clipboard-action="copy"><i class="layui-icon layui-icon-file-b"></i></button></div>')
+        })
+        new ClipboardJS('.clipboardBtn').on('success', function(e) {
+            layer.msg('成功复制文本！');
+            e.clearSelection();
+        });
 
         //文章图片点击事件(如果为pc端才生效)
         var device = layui.device();

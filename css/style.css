@@ -522,19 +522,6 @@ textarea {
 }
 
 
-/* tip 气泡 */
-
-.tip i {
-    position: relative;
-    top: -0.5em;
-    color: DeepSkyBlue;
-}
-
-.tip-when-bubble {
-    background-color: LemonChiffon;
-}
-
-
 /* 博主动态 */
 
 .dynamic {

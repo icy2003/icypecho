@@ -179,7 +179,7 @@ $(document).ready(function() {
         // 添加复制文本按钮
         $('.clipboard').each(function() {
             var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
-            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 10px);" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
+            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 38px);top: -2em;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
         var clipboardBackgroundColor = 'none';
         $('.clipboardBtn').mouseover(function() {

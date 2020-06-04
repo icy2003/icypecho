@@ -105,6 +105,29 @@
     $.fn.kxbdMarquee.setDefaults = function(settings) {
         $.extend($.fn.kxbdMarquee.defaults, settings);
     };
+
+    // textarea 自适应
+
+    $.fn.autoHeight = function() {
+        return this.each(function() {
+            var $this = jQuery(this);
+            if (!$this.attr('_initAdjustHeight')) {
+                $this.attr('_initAdjustHeight', $this.outerHeight());
+            }
+            _adjustH(this).on('input', function() {
+                _adjustH(this);
+            });
+        });
+        /**
+         * 重置高度
+         * @param {Object} elem
+         */
+        function _adjustH(elem) {
+            var $obj = jQuery(elem);
+            return $obj.css({ height: $obj.attr('_initAdjustHeight'), 'overflow-y': 'hidden' })
+                .height(elem.scrollHeight);
+        }
+    }
 })(jQuery);
 
 function setCookie(name, value) {
@@ -179,7 +202,7 @@ $(document).ready(function() {
         // 添加复制文本按钮
         $('.clipboard').each(function() {
             var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
-            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 38px);top: -2em;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
+            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 46px);top: -32px;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
         var clipboardBackgroundColor = 'none';
         $('.clipboardBtn').mouseover(function() {
@@ -260,6 +283,12 @@ $(document).ready(function() {
    |_|___|_  |___|___|___|___|_|___|___|_|_|_|
          |___|
    `, 'color: #4fbddf')
+
+        // textarea 自适应
+
+        if ($('textarea')) {
+            $('textarea').autoHeight()
+        }
     });
 
 })

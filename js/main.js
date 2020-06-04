@@ -152,9 +152,9 @@ $(document).ready(function() {
 
         // 添加 tip 气泡
         $('.tip').each(function() {
-            if (this.title && $(this).attr('bubble') != undefined) {
-                var bubble = $(this).attr('bubble')
-                if (bubble == 'true') {
+            var bubble = $(this).attr('bubble')
+            if (this.title && bubble != undefined) {
+                if (bubble == '') {
                     bubble = 'layui-icon-reply-fill'
                 }
                 $(this).append('<i class="layui-icon ' + bubble + '"></i>')

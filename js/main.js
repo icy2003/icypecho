@@ -263,6 +263,11 @@ $(document).ready(function() {
 
         // textarea 自适应
         autosize($('textarea'));
+
+        // 防止 iframe 嵌套
+        if (window.self.location !== window.top.location) {
+            window.top.location = window.self.location;
+        }
     });
 
 })

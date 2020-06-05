@@ -182,7 +182,7 @@ $(document).ready(function() {
             $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 46px);top: -32px;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
         var clipboardBackgroundColor = 'none';
-        $('.clipboardBtn').mouseover(function() {
+        $('.clipboard .clipboardBtn').mouseover(function() {
             clipboardBackgroundColor = $(this).parent().parent().css('background-color')
             $(this).parent().parent().css('background-color', 'AliceBlue')
         }).mouseout(function() {

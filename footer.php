@@ -12,7 +12,7 @@ $links = include 'data/links.php';
                 <a href="<?php $this->options->siteUrl();?>"><?php $this->options->title();?></a>
             </span>
             <span>
-                <a href="http://typecho.org/" target="_blank" rel="nofollow">Typecho 提供技术支持</a>
+                <a href="https://typecho.org/" target="_blank" rel="nofollow">Typecho 提供技术支持</a>
             </span>
         </span>
     </div>

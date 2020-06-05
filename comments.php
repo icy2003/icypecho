@@ -108,7 +108,7 @@ if ($comments->levels > 0) {
                 </div>
                 <div class="layui-col-md4">
                     <input type="url" name="url" id="url" lay-verify="url" class="layui-input"
-                        placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif;?><?php _e('http://您的主页');?>"
+                        placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif;?><?php _e('https://您的主页');?>"
                         value="<?php $this->remember('url');?>"
                         <?php if ($this->options->commentsRequireURL): ?>required<?php endif;?> />
                 </div>

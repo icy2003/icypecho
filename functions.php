@@ -73,3 +73,14 @@ function themeConfig($form)
     $logoUrl = new Typecho_Widget_Helper_Form_Element_Text('logoUrl', null, null, _t('站点 LOGO 地址'), _t('在这里填入一个图片 URL 地址, 可以在网站标题前加上一个 LOGO'));
     $form->addInput($logoUrl);
 }
+
+function motto()
+{
+    $db = Typecho_Db::get();
+    $result = $db->fetchAll($db->select()->from('table.contents')
+            ->where('slug = ?', 'motto')
+    );
+    $poems = $result[0]['text'];
+    $poems = explode("~", $poems); /* ~ 为分隔符*/
+    return trim($poems[rand(0, count($poems) - 1)]);
+}

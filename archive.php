@@ -20,6 +20,12 @@
             </span>
         </div>
         <div class="layui-col-md9 layui-col-lg9">
+            <fieldset class="layui-elem-field">
+                <legend><?php echo motto() ?></legend>
+                <div class="layui-field-box">
+                    <?php echo $this->getDescription() ? $this->getDescription() : $this->archiveTitle(null, '(*￣０￣)ノ[ ', ' ]'); ?>
+                </div>
+            </fieldset>
             <?php if ($this->have()): ?>
             <?php while ($this->next()): ?>
             <div class="title-article list-card">

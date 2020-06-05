@@ -181,6 +181,8 @@ $(document).ready(function() {
             var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
             $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 46px);top: -32px;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
+
+        // 复制的文本背景修改
         var clipboardBackgroundColor = 'none';
         $('.clipboard .clipboardBtn').mouseover(function() {
             clipboardBackgroundColor = $(this).parent().parent().css('background-color')

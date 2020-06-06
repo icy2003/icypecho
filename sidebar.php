@@ -36,6 +36,7 @@ if ($_COOKIE['icy2003Location'] && $_COOKIE['icy2003Weather']) {
     $ipLocation = $_COOKIE['icy2003Location'];
 } else {
     $ip = (new Request)->getRemoteIP();
+    // $ip = '153.19.50.62';
     $ipInfo = (new Ip)->fetchAttribution($ip);
     $ipLocation = I::get($ipInfo->toArray(), 'city', '江西省赣州市');
     // $ipLocation = '广东省广州市';
@@ -89,11 +90,16 @@ if (!getCookie('icy2003Weather') || !getCookie('icy2003Location')) {
         <h3 class="title-sidebar"><i class="layui-icon layui-icon-tree"></i><?php echo $ipLocation ?></h3>
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
+                <?php if (!empty($weatherInfo['info'])): ?>
                 <li class="layui-this">今天</li>
                 <li>明天</li>
+                <?php else: ?>
+                <li class="layui-this">天气</li>
+                <?php endif?>
                 <li>疫情</li>
             </ul>
             <div class="layui-tab-content" style="height: 2em;">
+                <?php if (!empty($weatherInfo['info'])): ?>
                 <div class="layui-tab-item layui-show">
                     实时：
                     <?php echo $weatherInfo['info'] ?> <?php echo $weatherInfo['temperature'] ?> ℃
@@ -119,6 +125,13 @@ if (!getCookie('icy2003Weather') || !getCookie('icy2003Location')) {
                         <?php echo $weatherInfo['tomorrow']['night']['temperature'] ?> ℃
                     </p>
                 </div>
+                <?php else: ?>
+                <div class="layui-tab-item layui-show">
+                    <p>天气获取失败或在国外</p>
+                    <p>如在国外，请查看：<a href="https://darksky.net/" target="_blank"
+                            rel="noopener noreferrer">这里</a></p>
+                </div>
+                <?php endif?>
                 <div class="layui-tab-item">
                     <a href="https://voice.baidu.com/act/newpneumonia/newpneumonia" target="_blank"
                         rel="noopener noreferrer">疫情实时大数据报告</a>

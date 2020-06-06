@@ -26,14 +26,14 @@ $welcomeMsg = $welcomeMsgs[rand(0, count($welcomeMsgs) - 1)];
 
     <!-- 通过自有函数输出HTML头部信息 -->
     <?php $this->header();?>
-    <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/layui/dist/css/layui.css');?>">
+    <link rel="stylesheet" href="https://www.layuicdn.com/layui/css/layui.css">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.css');?>">
     <link rel="stylesheet" href="<?php $this->options->themeUrl('css/style.css');?>?t=<?php echo time(); ?>">
     <link rel="shortcut icon" href="/usr/themes/icypecho/favicon.ico" />
     <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.6/clipboard.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
-    <script src="<?php $this->options->themeUrl('vendor/bower/layui/dist/layui.js');?>"></script>
+    <script src="https://www.layuicdn.com/layui/layui.js"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.js');?>"></script>
     <script src="<?php $this->options->themeUrl('js/main.js');?>"></script>
     <script>

@@ -182,13 +182,13 @@ $(document).ready(function() {
             $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 46px);top: -32px;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
         })
 
-        // 复制的文本背景修改
+        // 背景颜色改变
         var clipboardBackgroundColor = 'none';
-        $('.clipboard .clipboardBtn').mouseover(function() {
-            clipboardBackgroundColor = $(this).parent().parent().css('background-color')
-            $(this).parent().parent().css('background-color', 'AliceBlue')
+        $('.clipboard').mouseover(function() {
+            clipboardBackgroundColor = $(this).css('background-color')
+            $(this).css('background-color', 'AliceBlue')
         }).mouseout(function() {
-            $(this).parent().parent().css('background-color', clipboardBackgroundColor)
+            $(this).css('background-color', clipboardBackgroundColor)
         })
 
         // 复制成功弹窗

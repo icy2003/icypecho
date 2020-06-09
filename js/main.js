@@ -167,7 +167,10 @@ $(document).ready(function() {
             if ($.trim(this.title) != '') {
                 this.Title = this.title;
                 this.title = "";
-                layer.tips(this.Title, this, { tips: 3 });
+                layer.tips(this.Title, this, {
+                    tips: 3,
+                    time: 0,
+                });
             }
         }).mouseout(function() {
             if (this.Title != null) {

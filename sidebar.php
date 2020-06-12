@@ -196,7 +196,7 @@ $links = include 'data/links.php';
     <div class="friends">
         <h3 class="title-sidebar"><i class="layui-icon layui-icon-link"></i><a
                 href="https://www.icy2003.com/link.html">申请友链</a></h3>
-        <div class="layui-breadcrumb">
+        <div class="layui-breadcrumb" lay-separator="">
             <?php foreach ($links as $link): ?>a
             <a class="tip" href="<?php echo I::get($link, 'href') ?>" target="_blank" rel="noopener noreferrer"
                 title="<?php echo I::get($link, 'title') ?>"><?php echo I::get($link, 'name') ?></a>

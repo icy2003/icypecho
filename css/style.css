@@ -520,7 +520,6 @@ textarea {
 
 .friends div a {
     width: 45%;
-    margin: 0 6px 5px 0 !important;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -759,7 +758,7 @@ textarea {
 }
 
 .comment-children .pl-dan {
-    padding-left: 65px;
+    padding-left: 40px;
 }
 
 .comment-children .t-u {

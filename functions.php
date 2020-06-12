@@ -77,14 +77,14 @@ function themeConfig($form)
     $form->addInput($logoUrl);
 }
 
-function motto()
+function randomWords($type)
 {
     $db = Typecho_Db::get();
     $result = $db->fetchAll($db->select()->from('table.contents')
-            ->where('slug = ?', 'motto')
+            ->where('slug = ?', $type)
     );
     $poems = $result[0]['text'];
-    $poems = explode("~", $poems); /* ~ 为分隔符*/
+    $poems = explode("~~~", $poems); /* ~~~ 为分隔符*/
     return trim($poems[rand(0, count($poems) - 1)]);
 }
 

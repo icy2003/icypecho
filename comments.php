@@ -1,15 +1,6 @@
 <?php if (!defined('__TYPECHO_ROOT_DIR__')) {
     exit;
 }
-
-$placeholders = [
-    '求吐槽~',
-    '站住！打劫~',
-    '来啦？老弟~',
-    '马谡：“丞相，我有一言不知当讲不当讲。”
-孔明：“你不当讲！”',
-    '有朋自远方来，不亦说(yuè)乎',
-];
 ?>
 
 <?php function threadedComments($comments, $options)
@@ -86,29 +77,29 @@ if ($comments->levels > 0) {
             </div>
             <div class="layui-form-item">
                 <textarea rows="5" cols="30" name="text" id="textarea"
-                    placeholder="<?php echo $placeholders[rand(0, count($placeholders) - 1)] ?>" class="layui-textarea"
+                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea"
                     required></textarea>
             </div>
             <?php else: ?>
             <div class="layui-form-item">
                 <textarea rows="5" cols="30" name="text" id="textarea"
-                    placeholder="<?php echo $placeholders[rand(0, count($placeholders) - 1)] ?>" class="layui-textarea"
+                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea"
                     required></textarea>
             </div>
             <div class="layui-form-item layui-row layui-col-space5">
                 <div class="layui-col-md4">
-                    <input type="text" name="author" id="author" class="layui-input" placeholder="* 怎么称呼"
+                    <input type="text" name="author" id="author" class="layui-input" placeholder="* 敢问带佬尊姓带名"
                         value="<?php $this->remember('author');?>" required />
                 </div>
                 <div class="layui-col-md4">
                     <input type="email" name="mail" id="mail" lay-verify="email" class="layui-input"
-                        placeholder="<?php if ($this->options->commentsRequireMail): ?>* <?php endif;?>邮箱(放心~会保密~.~)"
+                        placeholder="<?php if ($this->options->commentsRequireMail): ?>* <?php endif;?>邮箱会保密，用于接收回复邮件"
                         value="<?php $this->remember('mail');?>"
                         <?php if ($this->options->commentsRequireMail): ?>required<?php endif;?> />
                 </div>
                 <div class="layui-col-md4">
                     <input type="url" name="url" id="url" lay-verify="url" class="layui-input"
-                        placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif;?><?php _e('https://您的主页');?>"
+                        placeholder="<?php if ($this->options->commentsRequireURL): ?>* <?php endif;?><?php _e('https://带佬的藏身处');?>"
                         value="<?php $this->remember('url');?>"
                         <?php if ($this->options->commentsRequireURL): ?>required<?php endif;?> />
                 </div>

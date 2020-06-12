@@ -21,7 +21,7 @@
         </div>
         <div class="layui-col-md9 layui-col-lg9">
             <fieldset class="layui-elem-field">
-                <legend><?php echo motto() ?></legend>
+                <legend><?php echo randomWords('motto') ?></legend>
                 <div class="layui-field-box">
                     <?php echo $this->getDescription() ? $this->getDescription() : $this->archiveTitle(null, '(*￣０￣)ノ[ ', ' ]'); ?>
                 </div>

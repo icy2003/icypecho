@@ -40,7 +40,7 @@ if ($comments->levels > 0) {
     ?>">
     <div id="<?php $comments->theId();?>" class="pl-dan comment-txt-box">
         <div class="t-p comment-author">
-            <?php $comments->gravatar('40', '');?>
+            <?php echo getPortrait($comments) ?>
         </div>
         <div class="t-u comment-author">
             <strong>

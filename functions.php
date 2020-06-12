@@ -1,5 +1,8 @@
 <?php
 
+use icy2003\php\I;
+use icy2003\php\iapis\QQ;
+use icy2003\php\ihelpers\Arrays;
 use icy2003\php\ihelpers\Strings;
 
 if (!defined('__TYPECHO_ROOT_DIR__')) {
@@ -83,4 +86,27 @@ function motto()
     $poems = $result[0]['text'];
     $poems = explode("~", $poems); /* ~ 为分隔符*/
     return trim($poems[rand(0, count($poems) - 1)]);
+}
+
+function getPortrait($comments, $size = 40)
+{
+    if ($comments->options->commentsAvatar && 'comment' == $comments->type) {
+        $rating = $comments->options->commentsAvatarRating;
+        $plugged = false;
+        $comments->pluginHandle(__CLASS__)->trigger($plugged)->gravatar($size, $rating, '', $comments);
+        if (!$plugged) {
+            $url = Typecho_Common::gravatarUrl($comments->mail, $size, $rating, '', $comments->request->isSecure());
+            if ($qqNumber = Strings::partBefore($comments->mail, '@qq.com')) {
+                $qq = new QQ($qqNumber);
+                $qq->fetchInfo(['spec' => 1]);
+                $url = $qq->getResult('portrait');
+            }
+            $maps = Arrays::column(include './data/links.php', 'portrait', 'email');
+            if( $temp = I::get($maps, $comments->mail)){
+                $url = $temp;
+            }
+            return '<img class="avatar" src="' . $url . '" alt="' .
+            $comments->author . '" width="' . $size . '" height="' . $size . '" />';
+        }
+    }
 }

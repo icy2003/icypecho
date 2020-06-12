@@ -90,23 +90,16 @@ function motto()
 
 function getPortrait($comments, $size = 40)
 {
-    if ($comments->options->commentsAvatar && 'comment' == $comments->type) {
-        $rating = $comments->options->commentsAvatarRating;
-        $plugged = false;
-        $comments->pluginHandle(__CLASS__)->trigger($plugged)->gravatar($size, $rating, '', $comments);
-        if (!$plugged) {
-            $url = Typecho_Common::gravatarUrl($comments->mail, $size, $rating, '', $comments->request->isSecure());
-            if ($qqNumber = Strings::partBefore($comments->mail, '@qq.com')) {
-                $qq = new QQ($qqNumber);
-                $qq->fetchInfo(['spec' => 1]);
-                $url = $qq->getResult('portrait');
-            }
-            $maps = Arrays::column(include './data/links.php', 'portrait', 'email');
-            if( $temp = I::get($maps, $comments->mail)){
-                $url = $temp;
-            }
-            return '<img class="avatar" src="' . $url . '" alt="' .
-            $comments->author . '" width="' . $size . '" height="' . $size . '" />';
-        }
+    $url = Typecho_Common::gravatarUrl($comments->mail, $size, 'G', '', $comments->request->isSecure());
+    if ($qqNumber = Strings::partBefore($comments->mail, '@qq.com')) {
+        $qq = new QQ($qqNumber);
+        $qq->fetchInfo(['spec' => 1]);
+        $url = $qq->getResult('portrait');
     }
+    $maps = Arrays::column(include './data/links.php', 'portrait', 'email');
+    if ($temp = I::get($maps, $comments->mail)) {
+        $url = $temp;
+    }
+    return '<img class="avatar" src="' . $url . '" alt="' .
+    $comments->author . '" width="' . $size . '" height="' . $size . '" />';
 }

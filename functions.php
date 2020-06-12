@@ -96,9 +96,12 @@ function getPortrait($comments, $size = 40)
         $qq->fetchInfo(['spec' => 1]);
         $url = $qq->getResult('portrait');
     }
-    $maps = Arrays::column(include './data/links.php', 'portrait', 'email');
+    $maps = Arrays::column(include __DIR__ .'/data/links.php', 'portrait', 'email');
     if ($temp = I::get($maps, $comments->mail)) {
         $url = $temp;
+    }
+    if ($comments->mail == '2317216477@qq.com') {
+        $url = 'https://www.icy2003.com/touxiang.svg';
     }
     return '<img class="avatar" src="' . $url . '" alt="' .
     $comments->author . '" width="' . $size . '" height="' . $size . '" />';

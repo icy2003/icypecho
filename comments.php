@@ -16,7 +16,6 @@
             $commentClass .= ' comment-by-user'; //如果是评论作者的添加 .comment-by-user 样式
         }
     }
-    $commentLevelClass = $comments->_levels > 0 ? ' comment-child' : ' comment-parent'; //评论层数大于0为子级，否则是父级
     ?>
 
 <li id="li-<?php $comments->theId();?>" class="comment-body<?php
@@ -46,10 +45,10 @@ if ($comments->levels > 0) {
         </div><!-- 单条评论者信息及内容 -->
     </div>
     <?php if ($comments->children) {?>
-    <div class="pl-list comment-children">
-        <?php $comments->threadedComments($options);?>
-    </div>
-    <?php }?>
+    <div class=" pl-list comment-children">
+                        <?php $comments->threadedComments($options);?>
+                    </div>
+                    <?php }?>
 </li>
 
 <?php }?>
@@ -77,14 +76,12 @@ if ($comments->levels > 0) {
             </div>
             <div class="layui-form-item">
                 <textarea rows="5" cols="30" name="text" id="textarea"
-                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea"
-                    required></textarea>
+                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea" required></textarea>
             </div>
             <?php else: ?>
             <div class="layui-form-item">
                 <textarea rows="5" cols="30" name="text" id="textarea"
-                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea"
-                    required></textarea>
+                    placeholder="<?php echo randomWords('placeholder') ?>" class="layui-textarea" required></textarea>
             </div>
             <div class="layui-form-item layui-row layui-col-space5">
                 <div class="layui-col-md4">

@@ -83,9 +83,8 @@ function randomWords($type)
     $result = $db->fetchAll($db->select()->from('table.contents')
             ->where('slug = ?', $type)
     );
-    $poems = $result[0]['text'];
-    $poems = explode("~~~", $poems); /* ~~~ 为分隔符*/
-    return trim($poems[rand(0, count($poems) - 1)]);
+    $strings = explode("~.~", Strings::partAfter($result[0]['text'], '<!--markdown-->')); /* ~~~ 为分隔符*/
+    return trim($strings[rand(0, count($strings) - 1)]);
 }
 
 function getPortrait($comments, $size = 40)
@@ -96,7 +95,7 @@ function getPortrait($comments, $size = 40)
         $qq->fetchInfo(['spec' => 1]);
         $url = $qq->getResult('portrait');
     }
-    $maps = Arrays::column(include __DIR__ .'/data/links.php', 'portrait', 'email');
+    $maps = Arrays::column(include __DIR__ . '/data/links.php', 'portrait', 'email');
     if ($temp = I::get($maps, $comments->mail)) {
         $url = $temp;
     }

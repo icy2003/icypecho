@@ -707,25 +707,22 @@ textarea {
 .cancel-comment-reply {
     display: inline-block;
     font-size: 12px;
-    background-color: #f05050;
 }
 
 .cancel-comment-reply a {
+    color: #fff;
     padding: 2px 5px;
     border-radius: 4px;
-    color: #fff;
+    background-color: #f05050;
+    border: 1px solid #e2e2e2;
 }
 
 .comment-list li.comment-level-odd {
-    background: #F6F6F3;
+    background: #FFF9E8;
 }
 
 .comment-list li.comment-level-even {
     background: #FFF;
-}
-
-.comment-list li.comment-by-author {
-    background: #FFF9E8;
 }
 
 

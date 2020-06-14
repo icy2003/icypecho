@@ -273,6 +273,28 @@ $(document).ready(function() {
         if (window.self.location !== window.top.location) {
             window.top.location = window.self.location;
         }
+
+        //监听所有锚点链接实现平滑移动
+        function scrollTarget(hash) {
+            var hash = hash || window.location.hash
+            var $target = $(hash);
+            $target = $target.length && $target || $('[name=' + hash.slice(1) + ']');
+            if ($target.length) {
+                var targetOffset = $target.offset().top;
+                $('html,body').stop(true).animate({
+                        scrollTop: targetOffset
+                    },
+                    1000);
+                return false;
+            }
+
+        }
+        $('a[href^="#"]').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+                scrollTarget(this.hash)
+            }
+        });
+        scrollTarget()
     });
 
 })

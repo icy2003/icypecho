@@ -28,7 +28,7 @@ if ($comments->levels > 0) {
     $comments->alt(' comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-    <div id="<?php $comments->theId();?>" class="pl-dan comment-txt-box">
+    <div id="<?php $comments->theId();?>" class="pl-dan comment-txt-box" name="<?php $comments->theId();?>">
         <div class="t-p comment-author">
             <?php echo getPortrait($comments) ?>
         </div>
@@ -46,9 +46,9 @@ if ($comments->levels > 0) {
     </div>
     <?php if ($comments->children) {?>
     <div class=" pl-list comment-children">
-                        <?php $comments->threadedComments($options);?>
-                    </div>
-                    <?php }?>
+        <?php $comments->threadedComments($options);?>
+    </div>
+    <?php }?>
 </li>
 
 <?php }?>
@@ -63,8 +63,6 @@ if ($comments->levels > 0) {
         <div class="cancel-comment-reply">
             <?php $comments->cancelReply();?>
         </div>
-
-        <br />
         <form method="post" action="<?php $this->commentUrl()?>" id="comment-form" role="form">
             <?php if ($this->user->hasLogin()): ?>
             <div class="layui-form-item">

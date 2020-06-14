@@ -28,21 +28,26 @@ if ($comments->levels > 0) {
     $comments->alt(' comment-odd', ' comment-even');
     echo $commentClass;
     ?>">
-    <div id="<?php $comments->theId();?>" class="pl-dan comment-txt-box" name="<?php $comments->theId();?>">
-        <div class="t-p comment-author">
-            <?php echo getPortrait($comments) ?>
-        </div>
-        <div class="t-u comment-author">
-            <strong>
-                <?php $comments->author();?>
-                <span class="layui-badge"><?php echo $group; ?></span>
-            </strong>
-            <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
-            <div class="t-s">
-                <p><?php $comments->content();?></p>
+    <div id="<?php $comments->theId();?>" class="comment-txt-box" name="<?php $comments->theId();?>">
+        <div class="comment-row">
+            <div class="comment-avatar">
+                <?php echo getPortrait($comments) ?>
             </div>
-            <span class="t-btn"><?php $comments->reply();?> <span class="t-g"><?php $comments->date();?></span></span>
-        </div><!-- 单条评论者信息及内容 -->
+            <div class="comment-right">
+                <strong>
+                    <?php $comments->author();?>
+                    <span class="layui-badge"><?php echo $group; ?></span>
+                </strong>
+                <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
+                <div class="t-s">
+                    <p><?php $comments->content();?></p>
+                </div>
+            </div>
+        </div>
+        <div class="comment-reply">
+            <?php $comments->reply();?>
+            <span class="comment-time"><?php $comments->date();?></span>
+        </div>
     </div>
     <?php if ($comments->children) {?>
     <div class=" pl-list comment-children">

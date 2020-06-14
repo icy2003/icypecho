@@ -105,3 +105,8 @@ function getPortrait($comments, $size = 40)
     return '<img class="avatar" src="' . $url . '" alt="' .
     $comments->author . '" width="' . $size . '" height="' . $size . '" />';
 }
+
+function themeInit($archive)
+{
+    Helper::options()->commentsMaxNestingLevels = 999; //评论回复楼侧最高999层.这个正常设置最高只有7层
+}

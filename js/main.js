@@ -107,6 +107,13 @@
     };
 })(jQuery);
 
+//-------------------functions
+
+/**
+ * 设置一个 cookie
+ * @param {string} name cookie 键
+ * @param {mixed} value cookie 值
+ */
 function setCookie(name, value) {
     //设置名称为name,值为value的Cookie
     var expdate = new Date(); //初始化时间
@@ -116,6 +123,10 @@ function setCookie(name, value) {
     //即document.cookie= name+"="+value+";path=/";  时间默认为当前会话可以不要，但路径要填写，因为JS的默认路径是当前页，如果不填，此cookie只在当前页面生效！
 }
 
+/**
+ * 获取一个 cookie
+ * @param {string}} name cookie 键
+ */
 function getCookie(name) {
     //判断document.cookie对象里面是否存有cookie
     if (document.cookie.length > 0) {
@@ -131,6 +142,12 @@ function getCookie(name) {
     return null;
 }
 
+/**
+ * 获取 API 接口返回
+ * @param {string} route 路由
+ * @param {array} data 参数
+ * @param {callback} succ 成功回调
+ */
 function apiGet(route, data, succ) {
     $.ajax({
         url: 'https://api.icy2003.com/' + route,
@@ -150,7 +167,8 @@ $(document).ready(function() {
             $('.nav-btn dl').toggleClass('layui-show');
         });
 
-        // 添加 tip 气泡
+        // 1. class="tip" 添加 tip 提示
+        // 2. bubble 添加 tip 气泡
         $('.tip').each(function() {
             var bubble = $(this).attr('bubble')
             if (this.title && bubble != undefined) {
@@ -162,7 +180,7 @@ $(document).ready(function() {
             }
         })
 
-        // tip 提示
+        // 3. tip 显示和隐藏
         $(".tip").mouseover(function() {
             if ($.trim(this.title) != '') {
                 this.Title = this.title;
@@ -179,13 +197,33 @@ $(document).ready(function() {
             layer.closeAll()
         })
 
-        // 添加复制文本按钮
-        $('.clipboard').each(function() {
-            var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
-            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: relative; left: calc(100% - 46px);top: -32px;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
+        // 1. 添加 note 属性，会在侧边出现一个备注
+        $('[note]').each(function() {
+            var note = $(this).attr('note')
+            $(this).prepend(`<span class="note" style="width: 200px; padding: 2px; word-break: break-word; position: absolute; right: 0; z-index: 1; background-color: LemonChiffon; border: 1px solid grey;border-radius: 10px; visibility: visible">
+            <i class="layui-icon layui-icon-reduce-circle" style="font-size: 25px; line-height: 25px; position: absolute; top: 0; right: 0; visibility: visible" switch="1"></i>` + note + `</span>`)
         })
 
-        // 背景颜色改变
+        // 2. 备注展开和隐藏，默认展开
+        $('[note] i').click(function() {
+            if (1 == $(this).attr('switch')) {
+                $(this).parent().css({ "visibility": "hidden" })
+                $(this).attr('switch', 0)
+                $(this).addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
+            } else {
+                $(this).parent().css({ "visibility": "visible" })
+                $(this).attr('switch', 1)
+                $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
+            }
+        })
+
+        // 1. class="clipboard" 添加复制文本按钮
+        $('.clipboard').each(function() {
+            var text = $(this).html().replace(/<[^>]+>/g, "").replace(/(^\s*)|(\s*$)/g, "")
+            $(this).prepend('<div style="height: 0"><button type="button" class="layui-btn layui-btn-primary layui-btn layui-btn-sm clipboardBtn" style="position: absolute; right: 0;" data-clipboard-text="' + text + '" data-clipboard-action="copy">复制</button></div>')
+        })
+
+        // 2. 背景颜色改变
         var clipboardBackgroundColor = 'none';
         $('.clipboard').mouseover(function() {
             clipboardBackgroundColor = $(this).css('background-color')
@@ -194,13 +232,13 @@ $(document).ready(function() {
             $(this).css('background-color', clipboardBackgroundColor)
         })
 
-        // 复制成功弹窗
+        // class="clipboardBtn" 复制成功弹窗
         new ClipboardJS('.clipboardBtn').on('success', function(e) {
             layer.msg('成功复制文本！');
             e.clearSelection();
         });
 
-        //文章图片点击事件(如果为pc端才生效)
+        // 文章图片点击预览(如果为pc端才生效)
         var device = layui.device();
         if (!(device.weixin || device.android || device.ios)) {
             $(".text img").click(function() {
@@ -231,7 +269,7 @@ $(document).ready(function() {
             };
         }
 
-        //右下角工具箱（返回顶部）
+        // 右下角工具箱（返回顶部）
         util.fixbar({
             css: {
                 bottom: '15%',
@@ -248,7 +286,7 @@ $(document).ready(function() {
             });
         }
 
-        // 修改标题栏
+        // 失去获取焦点时修改标题栏
         var title = document.title
         window.onblur = function() {
             document.title = "∑(っ°Д°;)っ页面崩溃了……"
@@ -266,7 +304,7 @@ $(document).ready(function() {
          |___|
    `, 'color: #4fbddf')
 
-        // textarea 自适应
+        // textarea 自适应高度
         autosize($('textarea'));
 
         // 防止 iframe 嵌套
@@ -274,7 +312,7 @@ $(document).ready(function() {
             window.top.location = window.self.location;
         }
 
-        //监听所有锚点链接实现平滑移动
+        // 监听所有锚点链接实现平滑移动
         $('a[href^="#"]').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
                 var $target = $(this.hash);

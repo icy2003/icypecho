@@ -224,7 +224,9 @@ textarea {
 .list-card .list-pic {
     width: 150px;
     height: 150px;
-    line-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     float: left;
     text-align: center;
     overflow: hidden;
@@ -239,7 +241,7 @@ textarea {
 
 .list-card .list-pic a {
     word-wrap: break-word;
-    word-break: normal;
+    word-break: keep-all;
 }
 
 .list-card p {

@@ -41,19 +41,14 @@ function get_post_view($archive)
 // 获取附件图片
 function thumb($obj)
 {
-    ob_start();
-    $obj->title();
-    $title = ob_get_contents();
-    ob_end_clean();
-    $title = Strings::partAfter($title, '】') ?: $title;
     if ($obj->hidden) {
-        return $title;
+        $obj->title();
     } else {
         $attach = $obj->attachments(1)->attachment;
         if (isset($attach->isImage) && $attach->isImage == 1) {
             return "<img src='{$attach->url}' class='img-full'>";
         } else {
-            return $title;
+            $obj->title();
         }
     }
 }

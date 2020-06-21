@@ -37,8 +37,9 @@ if ($comments->levels > 0) {
                 <strong>
                     <?php $comments->author();?>
                     <span class="layui-badge"><?php echo $group; ?></span>
+                    <?php echo getPermalinkFromCoid($comments->parent); ?>
+                    <span class="comment-time"><?php $comments->date();?></span>
                 </strong>
-                <div><b><?php echo getPermalinkFromCoid($comments->parent); ?></b></div>
                 <div class="t-s">
                     <p><?php $comments->content();?></p>
                 </div>
@@ -46,7 +47,6 @@ if ($comments->levels > 0) {
         </div>
         <div class="comment-reply">
             <?php $comments->reply();?>
-            <span class="comment-time"><?php $comments->date();?></span>
         </div>
     </div>
     <?php if ($comments->children) {?>

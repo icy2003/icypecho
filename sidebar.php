@@ -31,11 +31,14 @@ if ($hour >= 3 && $hour < 6) {
     $hourText = '深夜';
 }
 
-if ($_COOKIE['icy2003Location'] && $_COOKIE['icy2003Weather']) {
-    $weatherInfo = Json::decode($_COOKIE['icy2003Weather']);
-    $ipLocation = $_COOKIE['icy2003Location'];
+$ip = (new Request)->getRemoteIP();
+$key = 'icy2003_weather_' . md5($ip);
+
+if (!empty($_COOKIE[$key])) {
+    $array = Json::decode($_COOKIE[$key]);
+    $ipLocation = $array['location'];
+    $weatherInfo = $array['detail'];
 } else {
-    $ip = (new Request)->getRemoteIP();
     // $ip = '153.19.50.62';
     $ipInfo = (new Ip)->fetchAttribution($ip);
     $ipLocation = I::get($ipInfo->toArray(), 'city', '江西省赣州市');
@@ -80,9 +83,12 @@ if ($_COOKIE['icy2003Location'] && $_COOKIE['icy2003Weather']) {
 }
 ?>
 <script>
-if (!getCookie('icy2003Weather') || !getCookie('icy2003Location')) {
-    setCookie('icy2003Location', '<?php echo $ipLocation ?>')
-    setCookie('icy2003Weather', '<?php echo Json::encode($weatherInfo) ?>')
+var $weatherKey = '<?php echo $key ?>'
+if (!getCookie($weatherKey)) {
+    setCookie($weatherKey, `<?php echo Json::encode([
+    'location' => $ipLocation,
+    'detail' => $weatherInfo,
+]) ?>`)
 }
 </script>
 <div class="sidebar layui-col-md3 layui-col-lg3">
@@ -127,9 +133,10 @@ if (!getCookie('icy2003Weather') || !getCookie('icy2003Location')) {
                 </div>
                 <?php else: ?>
                 <div class="layui-tab-item layui-show">
-                    <p>天气获取失败或在国外</p>
-                    <p>如在国外，请查看：<a href="https://darksky.net/" target="_blank"
-                            rel="noopener noreferrer">这里</a></p>
+                    <p>天气获取失败，请自行查看</p>
+                    <p><a href="http://www.nmc.cn/publish/forecast.html" target="_blank"
+                            rel="noopener noreferrer">国内天气</a></p>
+                    <p><a href="https://darksky.net/" target="_blank" rel="noopener noreferrer">国外天气</a></p>
                 </div>
                 <?php endif?>
                 <div class="layui-tab-item">

@@ -15,10 +15,12 @@
         <div class="page-blank-wrap">
             <div class="site-error">
                 <h1 class="headline"><img src="<?php $this->options->themeUrl('img/404.gif');?>" alt="404"></h1>
+                <h1>哦，亲爱的华生，你要去哪？</h1>
                 <div class="error-content">
-                    <h3>哦，亲爱的华生</h3>
-                    <h3>贝克街可不是这个方向</h3>
-                    <h1>回到 <a href="<?php $this->options->siteUrl();?>">贝克街221号B</a></h1>
+                    <h3>1. 往左，回 <a href="<?php $this->options->siteUrl();?>">贝克街 221B</a></h3>
+                    <h3>2. 往右，去 <a href="<?php $this->options->siteUrl();?>">苏格兰场</a><span
+                            style="font-size: 12px">（<b>H</b>ome <b>O</b>ffice <b>L</b>arge
+                            <b>M</b>ajor <b>E</b>nquiry <b>S</b>ystem，即 HOLMES）</span></h3>
                 </div>
             </div>
         </div>

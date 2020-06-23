@@ -17,8 +17,8 @@
                 <h1 class="headline"><img src="<?php $this->options->themeUrl('img/404.gif');?>" alt="404"></h1>
                 <h1>哦，亲爱的华生，你要去哪？</h1>
                 <div class="error-content">
-                    <h3>1. 往左，回 <a href="<?php $this->options->siteUrl();?>">贝克街 221B</a></h3>
-                    <h3>2. 往右，去 <a href="<?php $this->options->siteUrl();?>">苏格兰场</a><span
+                    <h3>1. <a href="<?php $this->options->siteUrl();?>" title="去首页">贝克街 221B</a></h3>
+                    <h3>2. <a href="javascript:history.back(-1)" title="返回上一页">苏格兰场</a><span
                             style="font-size: 12px">（<b>H</b>ome <b>O</b>ffice <b>L</b>arge
                             <b>M</b>ajor <b>E</b>nquiry <b>S</b>ystem，即 HOLMES）</span></h3>
                 </div>

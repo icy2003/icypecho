@@ -101,7 +101,11 @@ blockquote {
     margin: 1em 0;
     padding-left: 1.5em;
     border-left: 4px solid #eee;
-    color: #666;
+    color: #999;
+}
+
+blockquote ul {
+    padding-left: 0 !important;
 }
 
 table {
@@ -1100,8 +1104,40 @@ textarea {
 }
 
 
+/* ---------- 特殊功能样式 ---------- */
+
+
 /* 下划线样式 */
 
 .underline {
     border-bottom: 1px solid black;
+}
+
+
+/* note 样式 */
+
+.note {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: normal;
+    min-width: 200px;
+    padding: 2px;
+    word-break: break-word;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    background-color: LemonChiffon;
+    border: 1px solid grey;
+    border-radius: 10px;
+    visibility: visible
+}
+
+.note i {
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    visibility: visible
 }

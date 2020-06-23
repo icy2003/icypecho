@@ -197,25 +197,28 @@ $(document).ready(function() {
             layer.closeAll()
         })
 
-        // 1. 添加 note 属性，会在侧边出现一个备注
-        $('[note]').each(function() {
-            var note = $(this).attr('note')
-            $(this).prepend(`<span class="note" style="width: 200px; padding: 2px; word-break: break-word; position: absolute; right: 0; z-index: 1; background-color: LemonChiffon; border: 1px solid grey;border-radius: 10px; visibility: visible">
-            <i class="layui-icon layui-icon-reduce-circle" style="font-size: 25px; line-height: 25px; position: absolute; top: 0; right: 0; visibility: visible" switch="1"></i>` + note + `</span>`)
-        })
 
-        // 2. 备注展开和隐藏，默认展开
-        $('[note] i').click(function() {
-            if (1 == $(this).attr('switch')) {
-                $(this).parent().css({ "visibility": "hidden" })
-                $(this).attr('switch', 0)
-                $(this).addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
-            } else {
-                $(this).parent().css({ "visibility": "visible" })
-                $(this).attr('switch', 1)
-                $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
-            }
-        })
+        if ($('[note]').length > 0) {
+            // 1. 添加 note 属性，会在侧边出现一个备注
+            $('[note]').each(function() {
+                var note = $(this).attr('note')
+                $(this).prepend(`<span class="note">
+            <i class="layui-icon layui-icon-reduce-circle" switch="1"></i>` + note + `</span>`)
+            })
+
+            // 2. 备注展开和隐藏，默认展开
+            $('[note] i').click(function() {
+                if (1 == $(this).attr('switch')) {
+                    $(this).parent().css({ "visibility": "hidden" })
+                    $(this).attr('switch', 0)
+                    $(this).addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
+                } else {
+                    $(this).parent().css({ "visibility": "visible" })
+                    $(this).attr('switch', 1)
+                    $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
+                }
+            })
+        }
 
         // 1. class="clipboard" 添加复制文本按钮
         $('.clipboard').each(function() {

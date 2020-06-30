@@ -200,10 +200,14 @@ $(document).ready(function() {
 
         if ($('[note]').length > 0) {
             // 1. 添加 note 属性，会在侧边出现一个备注
-            $('[note]').each(function() {
-                var note = $(this).attr('note')
-                $(this).prepend(`<span class="note">
-            <i class="layui-icon layui-icon-reduce-circle" switch="1"></i>` + note + `</span>`)
+            $('[note]').each(function(index) {
+                var note = $(this).attr('note'),
+                    switchValue = $(this).attr('switch')
+                if (undefined == switchValue) {
+                    switchValue = 1
+                }
+                $(this).prepend(`<span class="note" id="note_index_` + index + `">
+            <i class="layui-icon layui-icon-reduce-circle" switch="` + switchValue + `"></i>` + note + `</span>`)
             })
 
             // 2. 备注展开和隐藏，默认展开

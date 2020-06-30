@@ -208,9 +208,15 @@ $(document).ready(function() {
                 }
                 $(this).prepend(`<span class="note" id="note_index_` + index + `">
             <i class="layui-icon layui-icon-reduce-circle" switch="` + switchValue + `"></i>` + note + `</span>`)
+
+                // 2. 默认可选开和关
+                if (0 == switchValue) {
+                    $(this).find('span').css({ "visibility": "hidden" })
+                    $(this).find('i').addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
+                }
             })
 
-            // 2. 备注展开和隐藏，默认展开
+            // 3. 备注展开和隐藏，默认展开
             $('[note] i').click(function() {
                 if (1 == $(this).attr('switch')) {
                     $(this).parent().css({ "visibility": "hidden" })

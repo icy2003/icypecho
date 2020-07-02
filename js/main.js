@@ -228,6 +228,13 @@ $(document).ready(function() {
                     $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
                 }
             })
+
+            // 4. 鼠标滑过置顶
+            $('.note').mouseover(function() {
+                $(this).css({ 'z-index': 999 })
+            }).mouseout(function() {
+                $(this).css({ 'z-index': 1 })
+            })
         }
 
         // 1. class="clipboard" 添加复制文本按钮

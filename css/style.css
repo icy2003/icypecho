@@ -121,6 +121,7 @@ table td {
 
 table th {
     background: #f3f3f3;
+    white-space: nowrap;
 }
 
 h1,
@@ -1100,6 +1101,10 @@ textarea {
 
 .layui-tab ul {
     padding-left: 0;
+}
+
+.layui-tab-item ul {
+    padding-left: 40px;
 }
 
 

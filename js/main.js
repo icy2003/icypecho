@@ -201,7 +201,7 @@ $(document).ready(function() {
         if ($('[note]').length > 0) {
             // 1. 添加 note 属性，会在侧边出现一个备注
             $('[note]').each(function(index) {
-                var note = $(this).attr('note'),
+                var note = '<pre>' + $(this).attr('note') + '</pre>',
                     switchValue = $(this).attr('switch')
                 if (undefined == switchValue) {
                     switchValue = 1

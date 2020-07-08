@@ -70,31 +70,11 @@ h6 {
     text-align: center;
 }
 
-pre,
 code {
     background: #F3F3F3;
     font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", monospace;
     font-size: .92857em;
-}
-
-code {
     color: #B94A48;
-}
-
-pre {
-    padding: 8px;
-    overflow: auto;
-    max-height: 400px;
-    margin: 1em 0px;
-    border-radius: 3px;
-}
-
-pre.line-numbers {
-    padding-left: 3em;
-}
-
-pre code {
-    color: #444;
 }
 
 blockquote {
@@ -106,6 +86,14 @@ blockquote {
 
 blockquote ul {
     padding-left: 0 !important;
+}
+
+blockquote ol {
+    padding-left: 1em !important;
+}
+
+blockquote ul li {
+    list-style-type: none !important;
 }
 
 table {
@@ -227,8 +215,8 @@ textarea {
 }
 
 .list-card .list-pic {
-    width: 150px;
-    height: 150px;
+    width: 9em;
+    height: 9em;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -245,6 +233,7 @@ textarea {
 }
 
 .list-card .list-pic a {
+    width: inherit;
     word-wrap: break-word;
     word-break: keep-all;
 }
@@ -253,7 +242,6 @@ textarea {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    overflow: hidden
 }
 
 .title-article {
@@ -264,13 +252,15 @@ textarea {
     margin-bottom: 10px;
 }
 
-.title-article h1 {
-    padding-bottom: 10px
+.title-article .list-introduction {
+    color: #666;
+    height: 7em;
+    margin-bottom: 0.5em;
+    overflow: hidden
 }
 
-.title-article p {
-    margin-bottom: 10px;
-    color: #666
+.title-article h1 {
+    padding-bottom: 10px
 }
 
 .title-article p span {
@@ -289,10 +279,6 @@ textarea {
 .title-article .titlepic img {
     max-width: 110px;
     max-height: 110px
-}
-
-.title-article .title-msg {
-    margin-bottom: 10px
 }
 
 .title-article .title-msg span {
@@ -402,6 +388,10 @@ textarea {
 #scroll {
     overflow: hidden;
     height: 1.5em;
+}
+
+#scroll ul {
+    padding-left: 0;
 }
 
 #scroll ul li {

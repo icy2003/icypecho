@@ -36,7 +36,7 @@
                 </div>
                 <a href="<?php $this->permalink()?>">
                     <h3><?php $this->title()?></h3>
-                    <p><?php $this->excerpt(200, '...');?></p>
+                    <div class="list-introduction"><?php echo excerpt($this, 200, '...'); ?></div>
                 </a>
                 <div class="title-msg">
                     <span><i class="layui-icon layui-icon-read"></i> <?php $this->category(',');?></span>

@@ -53,6 +53,11 @@ function thumb($obj)
     }
 }
 
+function excerpt($obj, $length = 100, $trim = '...')
+{
+    return Typecho_Common::subStr($obj->excerpt, 0, $length, $trim);
+}
+
 // 留言加@
 function getPermalinkFromCoid($coid)
 {

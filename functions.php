@@ -53,7 +53,7 @@ function thumb($obj)
     }
 }
 
-function excerpt($obj, $length = 100, $trim = '...')
+function excerpt($obj, $length = 1000, $trim = '...')
 {
     return Typecho_Common::subStr($obj->excerpt, 0, $length, $trim);
 }

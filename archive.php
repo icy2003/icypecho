@@ -36,8 +36,8 @@
                 </div>
                 <a href="<?php $this->permalink()?>">
                     <h3><?php $this->title()?></h3>
-                    <div class="list-introduction"><?php echo excerpt($this, 200, '...'); ?></div>
                 </a>
+                <div class="list-introduction"><?php echo excerpt($this); ?></div>
                 <div class="title-msg">
                     <span><i class="layui-icon layui-icon-read"></i> <?php $this->category(',');?></span>
                     <span><i class="layui-icon layui-icon-date"></i> <?php $this->date();?> </span>

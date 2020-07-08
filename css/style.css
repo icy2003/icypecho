@@ -1125,7 +1125,8 @@ textarea {
     background-color: LemonChiffon;
     border: 1px solid grey;
     border-radius: 10px;
-    visibility: visible
+    visibility: visible;
+    text-align: left;
 }
 
 .note i {

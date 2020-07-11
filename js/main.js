@@ -252,6 +252,24 @@ $(document).ready(function() {
             $(this).css('background-color', clipboardBackgroundColor)
         })
 
+        // contents 目录
+
+        var contents = $('.contents')
+        if (contents) {
+            contents.prepend('<span class="contents-title" switch="1">关闭</span>')
+            $('.contents-title').click(function() {
+                if (1 == $(this).attr('switch')) {
+                    $('.contents ul').hide()
+                    $(this).attr('switch', 0)
+                    $(this).text('展开')
+                } else {
+                    $('.contents ul').show()
+                    $(this).attr('switch', 1)
+                    $(this).text('关闭')
+                }
+            })
+        }
+
         // class="clipboardBtn" 复制成功弹窗
         new ClipboardJS('.clipboardBtn').on('success', function(e) {
             layer.msg('成功复制文本！');
@@ -335,8 +353,8 @@ $(document).ready(function() {
         // 监听所有锚点链接实现平滑移动
         $('a[href^="#"]').click(function() {
             if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
-                var $target = $(this.hash);
-                $target = $target.length && $target || $('[name=' + this.hash.slice(1) + ']');
+                var hash = decodeURI(this.hash),
+                    $target = $(hash);
                 if ($target.length) {
                     var targetOffset = $target.offset().top;
                     $('html,body').stop(true).animate({

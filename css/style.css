@@ -92,18 +92,6 @@ blockquote a:hover {
     color: blueviolet;
 }
 
-blockquote ul {
-    padding-left: 0 !important;
-}
-
-blockquote ol {
-    padding-left: 1em !important;
-}
-
-blockquote ul li {
-    list-style-type: none !important;
-}
-
 table {
     border: 1px solid #ddd;
     width: 100%;
@@ -1041,6 +1029,7 @@ textarea {
 .reward,
 .copy-text,
 .page-text,
+.page-list,
 .relates,
 .user-text,
 .comment-text,
@@ -1078,9 +1067,9 @@ textarea {
     margin: 14px 0px;
 }
 
-.text ol,
-.text ul {
-    padding-left: 40px;
+.text ul,
+.text ol {
+    margin-left: 1em;
 }
 
 .text ol li {

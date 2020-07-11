@@ -77,6 +77,13 @@ function themeConfig($form)
     $form->addInput($logoUrl);
 }
 
+/**
+ * 获取随机句子
+ *
+ * @param string $type
+ *
+ * @return string
+ */
 function randomWords($type)
 {
     $db = Typecho_Db::get();
@@ -85,6 +92,22 @@ function randomWords($type)
     );
     $strings = explode("~.~", Strings::partAfter($result[0]['text'], '<!--markdown-->')); /* ~~~ 为分隔符*/
     return trim($strings[rand(0, count($strings) - 1)]);
+}
+
+/**
+ * 获取 markdown 内容作为目录
+ *
+ * @param string $name
+ *
+ * @return string
+ */
+function listContent($name)
+{
+    $db = Typecho_Db::get();
+    $result = $db->fetchAll($db->select()->from('table.contents')
+            ->where('slug = ?', 'var-' . $name)
+    );
+    return Markdown::convert(Strings::partAfter($result[0]['text'], '<!--markdown-->'));
 }
 
 function getPortrait($comments, $size = 40)

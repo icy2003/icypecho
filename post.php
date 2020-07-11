@@ -1,59 +1,72 @@
-<?php if (!defined('__TYPECHO_ROOT_DIR__')) exit; ?>
-<?php $this->need('header.php'); ?>
+<?php
+
+use icy2003\php\ihelpers\Strings;
+
+if (!defined('__TYPECHO_ROOT_DIR__')) {
+    exit;
+}
+?>
+<?php $this->need('header.php');?>
 
 <div class="layui-container">
     <div class="layui-row layui-col-space15 main">
         <div class="map">
             <span class="layui-breadcrumb">
-                <a href="<?php $this->options->siteUrl(); ?>"><?php _e('首页'); ?></a>
-                <?php $this->category(','); ?>
+                <a href="<?php $this->options->siteUrl();?>"><?php _e('首页');?></a>
+                <?php $this->category(',');?>
                 <a><cite>正文</cite></a>
             </span>
         </div>
         <div class="layui-col-md9 layui-col-lg9">
             <div class="title-article">
-                <h1><?php $this->title() ?></h1>
+                <h1><?php $this->title()?></h1>
                 <div class="title-msg">
-                    <span><i class="layui-icon">&#xe612;</i> <?php $this->author(); ?></span>
-                    <span><i class="layui-icon layui-icon-read"></i> <?php $this->category(','); ?></span>
-                    <span><i class="layui-icon layui-icon-date"></i> <?php $this->date(); ?> </span>
+                    <span><i class="layui-icon">&#xe612;</i> <?php $this->author();?></span>
+                    <span><i class="layui-icon layui-icon-read"></i> <?php $this->category(',');?></span>
+                    <span><i class="layui-icon layui-icon-date"></i> <?php $this->date();?> </span>
                     <span class="layui-hide-xs"><i class="layui-icon layui-icon-fire"></i>
-                        <?php get_post_view($this); ?></span>
+                        <?php get_post_view($this);?></span>
                     <span class="layui-hide-xs"><i class="layui-icon layui-icon-dialogue"></i>
-                        <?php $this->commentsNum('%d'); ?>条</span>
+                        <?php $this->commentsNum('%d');?>条</span>
                 </div>
             </div>
             <div class="text" itemprop="articleBody">
-                <?php $this->content(); ?>
+                <?php $this->content();?>
             </div>
+            <?php if (Strings::isContains($this->content, '<!--{{')): ?>
+            <div class="text page-list">
+                <?php echo listContent(Strings::partBetween($this->content, '<!--{{', '}}-->')); ?>
+            </div>
+            <?php else: ?>
+            <div class="page-text">
+                <div>
+                    <span>上一篇</span>
+                    <?php CategoryNext_Plugin::thePrev('%s', '没有了', array(), $this);?>
+                </div>
+                <div>
+                    <span>下一篇</span>
+                    <?php CategoryNext_Plugin::theNext('%s', '没有了', array(), $this);?>
+                </div>
+            </div>
+            <?php endif;?>
             <div class="tags-text">
-                <i class="layui-icon">&#xe66e;</i><?php _e('标签: '); ?><?php $this->tags(', ', true, '暂无'); ?>
+                <i class="layui-icon">&#xe66e;</i><?php _e('标签: ');?><?php $this->tags(', ', true, '暂无');?>
             </div>
             <div class="copy-text">
                 <div>
                     <p>非特殊说明，本博所有文章均为博主原创。</p>
-                    <p class="hidden-xs">如若转载，请注明出处：<a
-                            href="<?php $this->permalink() ?>"><?php $this->permalink() ?></a> </p>
-                </div>
-            </div>
-            <div class="page-text">
-                <div>
-                    <span>上一篇</span>
-                    <?php CategoryNext_Plugin::thePrev('%s','没有了',array(),$this);?>
-                </div>
-                <div>
-                    <span>下一篇</span>
-                    <?php CategoryNext_Plugin::theNext('%s','没有了',array(),$this);?>
+                    <p class="hidden-xs">如若转载，请注明出处：<a href="<?php $this->permalink()?>"><?php $this->permalink()?></a>
+                    </p>
                 </div>
             </div>
             <div class="comment-text layui-form">
-                <?php $this->need('comments.php'); ?>
+                <?php $this->need('comments.php');?>
             </div>
         </div>
 
-        <?php $this->need('sidebar.php'); ?>
+        <?php $this->need('sidebar.php');?>
 
     </div>
 </div>
 
-<?php $this->need('footer.php'); ?>
+<?php $this->need('footer.php');?>

@@ -33,7 +33,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) {
             <div class="text" itemprop="articleBody">
                 <?php $this->content();?>
             </div>
-            <?php if (Strings::isContains($this->content, '<!--{{')): ?>
+            <?php if (Strings::isContains($this->content, '<!--{{') && Strings::isContains($this->content, '}}-->')): ?>
             <div class="text page-list">
                 <?php echo listContent(Strings::partBetween($this->content, '<!--{{', '}}-->')); ?>
             </div>

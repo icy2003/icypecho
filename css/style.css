@@ -78,8 +78,7 @@ code {
 }
 
 blockquote {
-    margin: 1em 0;
-    padding-left: 1.5em;
+    padding-left: 1em;
     border-left: 4px solid #eee;
     color: #999;
 }
@@ -90,6 +89,19 @@ blockquote a {
 
 blockquote a:hover {
     color: blueviolet;
+}
+
+blockquote ul,
+blockquote ol {
+    margin-left: 1em;
+}
+
+blockquote ul li {
+    list-style: disc;
+}
+
+blockquote ol li {
+    list-style: decimal;
 }
 
 table {
@@ -245,8 +257,9 @@ textarea {
 .title-article .list-introduction {
     color: #666;
     height: 7em;
-    margin-bottom: 0.5em;
+    margin: 1em 0;
     overflow: hidden;
+    line-height: 1.4em;
 }
 
 .title-article h1 {

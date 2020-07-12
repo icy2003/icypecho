@@ -1057,7 +1057,7 @@ textarea {
 }
 
 .text img:not([class]) {
-    max-width: 80% !important;
+    max-width: 100% !important;
     height: auto !important;
     margin: 20px auto;
     display: block;

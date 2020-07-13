@@ -198,44 +198,42 @@ $(document).ready(function() {
         })
 
 
-        if ($('[note]').length > 0) {
-            // 1. 添加 note 属性，会在侧边出现一个备注
-            $('[note]').each(function(index) {
-                var note = '<pre>' + $(this).attr('note') + '</pre>',
-                    switchValue = $(this).attr('switch')
-                if (undefined == switchValue) {
-                    switchValue = 1
-                }
-                $(this).prepend(`<span class="note" id="note_index_` + index + `">
-            <i class="layui-icon layui-icon-reduce-circle" switch="` + switchValue + `"></i>` + note + `</span>`)
+        // 1. 添加 note 属性，会在侧边出现一个备注
+        $('[note]').each(function(index) {
+            var note = '<pre>' + $(this).attr('note') + '</pre>',
+                switchValue = $(this).attr('switch')
+            if (undefined == switchValue) {
+                switchValue = 1
+            }
+            $(this).prepend(`<span class="note" id="note_index_` + index + `">
+        <i class="layui-icon layui-icon-reduce-circle" switch="` + switchValue + `"></i>` + note + `</span>`)
 
-                // 2. 默认可选开和关
-                if (0 == switchValue) {
-                    $(this).find('span').css({ "visibility": "hidden" })
-                    $(this).find('i').addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
-                }
-            })
+            // 2. 默认可选开和关
+            if (0 == switchValue) {
+                $(this).find('span').css({ "visibility": "hidden" })
+                $(this).find('i').addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
+            }
+        })
 
-            // 3. 备注展开和隐藏，默认展开
-            $('[note] i').click(function() {
-                if (1 == $(this).attr('switch')) {
-                    $(this).parent().css({ "visibility": "hidden" })
-                    $(this).attr('switch', 0)
-                    $(this).addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
-                } else {
-                    $(this).parent().css({ "visibility": "visible" })
-                    $(this).attr('switch', 1)
-                    $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
-                }
-            })
+        // 3. 备注展开和隐藏，默认展开
+        $('[note] i').click(function() {
+            if (1 == $(this).attr('switch')) {
+                $(this).parent().css({ "visibility": "hidden" })
+                $(this).attr('switch', 0)
+                $(this).addClass("layui-icon-add-circle").removeClass("layui-icon-reduce-circle")
+            } else {
+                $(this).parent().css({ "visibility": "visible" })
+                $(this).attr('switch', 1)
+                $(this).addClass("layui-icon-reduce-circle").removeClass("layui-icon-add-circle")
+            }
+        })
 
-            // 4. 鼠标滑过置顶
-            $('.note').mouseover(function() {
-                $(this).css({ 'z-index': 999 })
-            }).mouseout(function() {
-                $(this).css({ 'z-index': 1 })
-            })
-        }
+        // 4. 鼠标滑过置顶
+        $('.note').mouseover(function() {
+            $(this).css({ 'z-index': 999 })
+        }).mouseout(function() {
+            $(this).css({ 'z-index': 1 })
+        })
 
         // 1. class="clipboard" 添加复制文本按钮
         $('.clipboard').each(function() {
@@ -269,6 +267,33 @@ $(document).ready(function() {
                 }
             })
         }
+
+        // tab 框
+
+        $('[tabs]').each(function() {
+            $(this).addClass('layui-tab layui-tab-card')
+            var tabs = $(this).attr('tabs').split('|'),
+                tabString = '',
+                contents = $(this).html().split('==='),
+                contentString = ''
+            $(this).html('')
+            tabs.forEach(function(tab, index) {
+                if (0 == index) {
+                    tabString += '<li class="layui-this">' + tab + '</li>'
+                } else {
+                    tabString += '<li>' + tab + '</li>'
+                }
+            })
+            contents.forEach(function(content, index) {
+                if (0 == index) {
+                    contentString += '<div class="layui-tab-item layui-show">' + content + '</div>'
+                } else {
+                    contentString += '<div class="layui-tab-item">' + content + '</div>'
+                }
+            })
+            $(this).prepend(`<ul class="layui-tab-title">` + tabString + `</ul>
+<div class="layui-tab-content">` + contentString + `</div>`)
+        })
 
         // class="clipboardBtn" 复制成功弹窗
         new ClipboardJS('.clipboardBtn').on('success', function(e) {

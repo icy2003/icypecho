@@ -35,7 +35,7 @@ $welcomeMsg = $welcomeMsgs[rand(0, count($welcomeMsgs) - 1)];
     <script src="https://cdn.bootcdn.net/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
     <script src="https://www.layuicdn.com/layui/layui.js"></script>
     <script src="<?php $this->options->themeUrl('vendor/bower/smallpop/dist/spop.min.js');?>"></script>
-    <script src="<?php $this->options->themeUrl('js/main.js');?>"></script>
+    <script src="<?php $this->options->themeUrl('js/main.js?' . filemtime(dirname(__FILE__) . '/js/main.js'));?>"></script>
     <script>
     var _hmt = _hmt || [];
     $(function() {

@@ -303,7 +303,7 @@ $(document).ready(function() {
 
         // 文章图片点击预览(如果为pc端才生效)
         var device = layui.device();
-        if (!(device.weixin || device.android || device.ios)) {
+        if (!(device.weixin || device.android || device.ios) || 1) {
             $(".text img").click(function() {
                 $.previewImage(this.src);
             });
@@ -321,7 +321,8 @@ $(document).ready(function() {
                         success: img.onerror,
                         content: $(img),
                         title: false,
-                        area: img.width > 1140 ? '1140px' : img.width,
+                        area: '90%',
+                        maxmin: true,
                         closeBtn: 1,
                         skin: 'layui-layer-nobg',
                         end: function() {

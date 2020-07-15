@@ -262,6 +262,14 @@ textarea {
     line-height: 1.4em;
 }
 
+.title-article .list-introduction>p {
+    text-indent: 2em;
+}
+
+.title-article .list-introduction img {
+    display: none;
+}
+
 .title-article h1 {
     padding-bottom: 10px
 }

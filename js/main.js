@@ -391,6 +391,11 @@ $(document).ready(function() {
                 }
             }
         })
+
+        // 调整非文档类文章的文首格式
+        if ($('.text').html() && -1 == $('.text').html().indexOf('<!--more-->')) {
+            $('.text>p').css('text-indent', '2em')
+        }
     });
 
 })

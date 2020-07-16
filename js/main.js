@@ -268,7 +268,7 @@ $(document).ready(function() {
             })
         }
 
-        // tab 框
+        // tabs 框
 
         $('[tabs]').each(function() {
             $(this).addClass('layui-tab layui-tab-card')
@@ -310,7 +310,7 @@ $(document).ready(function() {
             $.previewImage = function(src) {
                 var img = new Image(),
                     index = layer.load(2, { time: 0, scrollbar: false, shade: [0.02, '#000'] });
-                img.style.background = '#fff', img.style.display = 'none';
+                img.style.background = '#fff', img.style.display = 'none', img.style.width = '100%'
                 img.src = src;
                 document.body.appendChild(img), img.onerror = function() {
                     layer.close(index);

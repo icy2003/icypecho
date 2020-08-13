@@ -114,9 +114,13 @@ function getPortrait($comments, $size = 40)
 {
     $url = Typecho_Common::gravatarUrl($comments->mail, $size, 'G', '', $comments->request->isSecure());
     if ($qqNumber = Strings::partBefore($comments->mail, '@qq.com')) {
-        $qq = new QQ($qqNumber);
-        $qq->fetchInfo(['spec' => 1]);
-        $url = $qq->getResult('portrait');
+        try {
+            $qq = new QQ($qqNumber);
+            $qq->fetchInfo(['spec' => 1]);
+            $url = $qq->getResult('portrait');
+        } catch (Exception $e) {
+            $url = '/usr/themes/icypecho/favicon.ico';
+        }
     }
     $maps = Arrays::column(include __DIR__ . '/data/links.php', 'portrait', 'email');
     if ($temp = I::get($maps, $comments->mail)) {

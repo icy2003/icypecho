@@ -112,7 +112,7 @@ table {
 table th,
 table td {
     padding: 5px 10px;
-    border: 1px solid #eee;
+    border: 1px solid #eee !important;
 }
 
 table th {
@@ -1101,12 +1101,12 @@ textarea {
     list-style: disc;
 }
 
-.layui-tab ul {
+.text .layui-tab ul {
     padding-left: 0;
 }
 
-.layui-tab-item ul {
-    padding-left: 40px;
+.text .layui-tab p {
+    text-indent: 2em;
 }
 
 

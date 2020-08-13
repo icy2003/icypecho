@@ -301,38 +301,6 @@ $(document).ready(function() {
             e.clearSelection();
         });
 
-        // 文章图片点击预览(如果为pc端才生效)
-        var device = layui.device();
-        if (!(device.weixin || device.android || device.ios) || 1) {
-            $(".text img").click(function() {
-                $.previewImage(this.src);
-            });
-            $.previewImage = function(src) {
-                var img = new Image(),
-                    index = layer.load(2, { time: 0, scrollbar: false, shade: [0.02, '#000'] });
-                img.style.background = '#fff', img.style.display = 'none', img.style.width = '100%'
-                img.src = src;
-                document.body.appendChild(img), img.onerror = function() {
-                    layer.close(index);
-                }, img.onload = function() {
-                    layer.open({
-                        type: 1,
-                        shadeClose: true,
-                        success: img.onerror,
-                        content: $(img),
-                        title: false,
-                        area: '90%',
-                        maxmin: true,
-                        closeBtn: 1,
-                        skin: 'layui-layer-nobg',
-                        end: function() {
-                            document.body.removeChild(img);
-                        }
-                    });
-                };
-            };
-        }
-
         // 右下角工具箱（返回顶部）
         util.fixbar({
             css: {
@@ -340,6 +308,7 @@ $(document).ready(function() {
             }
         });
 
+        var device = layui.device();
         // 如果是微信浏览器，给出温馨提示
         if (device.weixin) {
             layer.open({

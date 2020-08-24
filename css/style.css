@@ -115,6 +115,11 @@ table td {
     border: 1px solid #eee !important;
 }
 
+.highslide-container table th,
+.highslide-container table td {
+    border: none !important;
+}
+
 table th {
     background: #f3f3f3;
     white-space: nowrap;
@@ -1059,17 +1064,20 @@ textarea {
     padding: 20px;
 }
 
-.text {
+.text,
+.comment-row {
     padding: 10px 10px;
     margin-bottom: 10px;
     line-height: 2;
 }
 
-.text a {
+.text a,
+.comment-row a {
     color: lightskyblue;
 }
 
-.text .tab-content {
+.text .tab-content,
+.comment-row .tab-content {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-bottom: 10px;
@@ -1077,36 +1085,39 @@ textarea {
     overflow-y: scroll
 }
 
-.text img:not([class]) {
+.text img:not([class]),
+.comment-row img:not([class]) {
     max-width: 100% !important;
     height: auto !important;
     margin: 20px auto;
     display: block;
 }
 
-.text p {
+.text p,
+.comment-row p {
     margin: 0.5em 0px;
 }
 
 .text ul,
-.text ol {
+.text ol,
+.comment-row ul,
+.comment-row ol {
     margin-left: 1.5em;
 }
 
-.text ol li {
+.text ol li,
+.comment-row ol li {
     list-style: decimal;
 }
 
-.text ul li {
+.text ul li,
+.comment-row ul li {
     list-style: disc;
 }
 
-.text .layui-tab ul {
+.text .layui-tab ul,
+.comment-row .layui-tab ul {
     padding-left: 0;
-}
-
-.text .layui-tab p {
-    text-indent: 2em;
 }
 
 

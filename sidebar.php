@@ -41,7 +41,7 @@ if (!empty($_COOKIE[$key])) {
 } else {
     // $ip = '153.19.50.62';
     $ipInfo = (new Ip)->fetchAttribution($ip);
-    $ipLocation = I::get($ipInfo->toArray(), 'city', '江西省赣州市');
+    $ipLocation = I::get($ipInfo->toArray(), 'city', '未知城市，查看原因');
     // $ipLocation = '广东省广州市';
     $meteorology = new Meteorology();
     $meteorology->fetchProvinces();
@@ -93,7 +93,7 @@ if (!getCookie($weatherKey)) {
 </script>
 <div class="sidebar layui-col-md3 layui-col-lg3">
     <div class="weather">
-        <h3 class="title-sidebar"><i class="layui-icon layui-icon-tree"></i><?php echo $ipLocation ?></h3>
+        <h3 class="title-sidebar"><i class="layui-icon layui-icon-tree"></i><a href="https://www.icy2003.com/archives/53asd4.html"><?php echo $ipLocation ?></a></h3>
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
                 <?php if (!empty($weatherInfo['info'])): ?>
@@ -107,7 +107,7 @@ if (!getCookie($weatherKey)) {
             <div class="layui-tab-content" style="height: 2em;">
                 <?php if (!empty($weatherInfo['info'])): ?>
                 <div class="layui-tab-item layui-show">
-                    实时：
+                    最近一小时：
                     <?php echo $weatherInfo['info'] ?> <?php echo $weatherInfo['temperature'] ?> ℃
                     <div id="scroll">
                         <ul>

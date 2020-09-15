@@ -167,6 +167,33 @@ $(document).ready(function() {
             $('.nav-btn dl').toggleClass('layui-show');
         });
 
+        // tabs 框
+
+        $('[tabs]').each(function() {
+            $(this).addClass('layui-tab layui-tab-card')
+            var tabs = $(this).attr('tabs').split('|'),
+                tabString = '',
+                contents = $(this).html().split('==='),
+                contentString = ''
+            $(this).html('')
+            tabs.forEach(function(tab, index) {
+                if (0 == index) {
+                    tabString += '<li class="layui-this">' + tab + '</li>'
+                } else {
+                    tabString += '<li>' + tab + '</li>'
+                }
+            })
+            contents.forEach(function(content, index) {
+                if (0 == index) {
+                    contentString += '<div class="layui-tab-item layui-show">' + content + '</div>'
+                } else {
+                    contentString += '<div class="layui-tab-item">' + content + '</div>'
+                }
+            })
+            $(this).prepend(`<ul class="layui-tab-title">` + tabString + `</ul>
+<div class="layui-tab-content">` + contentString + `</div>`)
+        })
+
         // 1. class="tip" 添加 tip 提示
         // 2. bubble 添加 tip 气泡
         $('.tip').each(function() {
@@ -267,33 +294,6 @@ $(document).ready(function() {
                 }
             })
         }
-
-        // tabs 框
-
-        $('[tabs]').each(function() {
-            $(this).addClass('layui-tab layui-tab-card')
-            var tabs = $(this).attr('tabs').split('|'),
-                tabString = '',
-                contents = $(this).html().split('==='),
-                contentString = ''
-            $(this).html('')
-            tabs.forEach(function(tab, index) {
-                if (0 == index) {
-                    tabString += '<li class="layui-this">' + tab + '</li>'
-                } else {
-                    tabString += '<li>' + tab + '</li>'
-                }
-            })
-            contents.forEach(function(content, index) {
-                if (0 == index) {
-                    contentString += '<div class="layui-tab-item layui-show">' + content + '</div>'
-                } else {
-                    contentString += '<div class="layui-tab-item">' + content + '</div>'
-                }
-            })
-            $(this).prepend(`<ul class="layui-tab-title">` + tabString + `</ul>
-<div class="layui-tab-content">` + contentString + `</div>`)
-        })
 
         // class="clipboardBtn" 复制成功弹窗
         new ClipboardJS('.clipboardBtn').on('success', function(e) {

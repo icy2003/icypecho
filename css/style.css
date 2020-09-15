@@ -91,19 +91,6 @@ blockquote a:hover {
     color: blueviolet;
 }
 
-blockquote ul,
-blockquote ol {
-    margin-left: 1em;
-}
-
-blockquote ul li {
-    list-style: disc;
-}
-
-blockquote ol li {
-    list-style: decimal;
-}
-
 table {
     border: 1px solid #ddd;
     width: 100%;
@@ -1068,7 +1055,6 @@ textarea {
 .comment-row {
     padding: 10px 10px;
     margin-bottom: 10px;
-    line-height: 2;
 }
 
 .text a,
@@ -1098,6 +1084,8 @@ textarea {
     margin: 0.5em 0px;
 }
 
+.list-introduction ul,
+.list-introduction ol,
 .text ul,
 .text ol,
 .comment-row ul,
@@ -1105,19 +1093,41 @@ textarea {
     margin-left: 1.5em;
 }
 
+.list-introduction ol li,
 .text ol li,
 .comment-row ol li {
     list-style: decimal;
 }
 
+.list-introduction ul li,
 .text ul li,
 .comment-row ul li {
     list-style: disc;
 }
 
+.list-introduction ul ul li,
+.text ul ul li,
+.comment-row ul ul li {
+    list-style: circle;
+}
+
+.list-introduction ul ul ul li,
+.text ul ul ul li,
+.comment-row ul ul li {
+    list-style: square;
+}
+
 .text .layui-tab ul,
 .comment-row .layui-tab ul {
     padding-left: 0;
+}
+
+.text .layui-tab-item p {
+    text-indent: 2em;
+}
+
+.text .layui-tab-item blockquote p {
+    text-indent: 0em;
 }
 
 

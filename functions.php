@@ -112,8 +112,14 @@ function listContent($name)
 
 function getPortrait($comments, $size = 40)
 {
-    $url = Typecho_Common::gravatarUrl($comments->mail, $size, 'G', '', $comments->request->isSecure());
-    if ($qqNumber = Strings::partBefore($comments->mail, '@qq.com')) {
+    $maps = Arrays::column(include __DIR__ . '/data/links.php', 'portrait', 'email');
+    if ($comments->mail == '2317216477@qq.com') {
+        $url = 'https://www.icy2003.com/touxiang.svg';
+    } elseif ($temp = I::get($maps, $comments->mail)) {
+        $url = $temp;
+    } else {
+        $url = Typecho_Common::gravatarUrl($comments->mail, $size, 'G', '', $comments->request->isSecure());
+        $qqNumber = Strings::partBefore($comments->mail, '@qq.com');
         try {
             $qq = new QQ($qqNumber);
             $qq->fetchInfo(['spec' => 1]);
@@ -122,13 +128,7 @@ function getPortrait($comments, $size = 40)
             $url = '/usr/themes/icypecho/favicon.ico';
         }
     }
-    $maps = Arrays::column(include __DIR__ . '/data/links.php', 'portrait', 'email');
-    if ($temp = I::get($maps, $comments->mail)) {
-        $url = $temp;
-    }
-    if ($comments->mail == '2317216477@qq.com') {
-        $url = 'https://www.icy2003.com/touxiang.svg';
-    }
+
     return '<img class="avatar" src="' . $url . '" alt="' .
     $comments->author . '" width="' . $size . '" height="' . $size . '" />';
 }

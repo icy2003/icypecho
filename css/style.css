@@ -112,6 +112,10 @@ table th {
     white-space: nowrap;
 }
 
+table tr:nth-child(odd) {
+    background: #fcfcfc;
+}
+
 h1,
 h2,
 h3,

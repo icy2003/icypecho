@@ -108,7 +108,7 @@ table td {
 }
 
 table th {
-    background: #f3f3f3;
+    background: #e3e3e3 !important;
     white-space: nowrap;
 }
 
